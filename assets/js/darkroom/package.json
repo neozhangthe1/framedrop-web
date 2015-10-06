@@ -1,0 +1,66 @@
+{
+  "name": "darkroom",
+  "description": "Extensible image editing tool via HTML canvas",
+  "version": "2.0.0",
+  "license": "MIT",
+  "homepage": "https://mattketmo.github.io/darkroomjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattketmo/darkroomjs.git"
+  },
+  "author": {
+    "name": "Matthieu Moquet",
+    "email": "matthieu@moquet.net",
+    "url": "http://moquet.net/"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-inject": "^1.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.1.0",
+    "gulp-svgmin": "^1.2.0",
+    "gulp-svgstore": "^5.0.0",
+    "gulp-uglify": "^1.4.1",
+    "gulp-util": "^3.0.0",
+    "rimraf": "^2.2.8"
+  },
+  "scripts": {
+    "start": "gulp server build --prod",
+    "develop": "gulp"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "gitHead": "ed9e50093804529b22c7d932b108033a9be9b994",
+  "bugs": {
+    "url": "https://github.com/mattketmo/darkroomjs/issues"
+  },
+  "_id": "darkroom@2.0.0",
+  "_shasum": "c74d81c21efe9fa0e978a479280348c0c9c25f9b",
+  "_from": "darkroom@2.0.0",
+  "_npmVersion": "2.12.1",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "mattketmo",
+    "email": "matthieu@moquet.net"
+  },
+  "dist": {
+    "shasum": "c74d81c21efe9fa0e978a479280348c0c9c25f9b",
+    "tarball": "http://registry.npmjs.org/darkroom/-/darkroom-2.0.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "mattketmo",
+      "email": "matthieu@moquet.net"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/darkroom/-/darkroom-2.0.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

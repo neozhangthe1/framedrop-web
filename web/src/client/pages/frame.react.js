@@ -29,6 +29,8 @@ export default class Frame extends Component {
 
     const scripts = `
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
+      <script type="text/javascript" src="/js/fabric/dist/fabric.js"></script>
+      <script type="text/javascript" src="/js/darkroom/build/darkroom.js"></script>
       <script>
         jQuery(document).ready(function() {
           App.init();
@@ -44,6 +46,7 @@ export default class Frame extends Component {
                 scrollPerPage: true
             });
         });
+
       </script>
     `;
 

@@ -1,6 +1,7 @@
 /**
  * Created by yutao on 15/10/6.
  */
+import "./canvas.styl";
 import Component from 'react-pure-render/component';
 import React, {PropTypes} from 'react';
 
@@ -11,34 +12,62 @@ export default class Canvas extends Component {
   }
 
   componentDidMount() {
-    var that = this;
-    console.log(this.props.data);
+    //var that = this;
+    //console.log(this.props.data);
     var w = this.props.data.width;
     var h = this.props.data.height;
     //if (w < 1000) {
     //  w = 1000;
     //  h = 1000 / this.props.data.width * this.props.data.height;
     //}
-    h = this.refs.img.getDOMNode().offsetWidth / w * h;
-    w = this.refs.img.getDOMNode().offsetWidth;
+    h = React.findDOMNode(this.refs.wrap).offsetWidth / w * h;
+    w = React.findDOMNode(this.refs.wrap).offsetWidth;
     // create a wrapper around native canvas element (with id="c")
-    var canvas = new fabric.Canvas('tagger');
-    console.log(w);
+    //var canvas = new fabric.Canvas('tagger');
+    console.log(React.findDOMNode(this.refs.wrap));
     console.log(h);
-    canvas.setWidth(w);
-    canvas.setHeight(h);
+    //canvas.setWidth(w);
+    //canvas.setHeight(h);
+    //
+    //// create a rectangle object
+    //var rect = new fabric.Rect({
+    //  left: 100,
+    //  top: 100,
+    //  fill: 'red',
+    //  width: 20,
+    //  height: 20
+    //});
+    //
+    //// "add" rectangle onto canvas
+    //canvas.add(rect);
 
-    // create a rectangle object
-    var rect = new fabric.Rect({
-      left: 100,
-      top: 100,
-      fill: 'red',
-      width: 20,
-      height: 20
+    var dkrm = new Darkroom('#item-img', {
+      // Size options
+      minWidth: w,
+      minHeight: h,
+      maxWidth: w,
+      maxHeight: h,
+      backgroundColor: '#000',
+
+      // Plugins options
+      plugins: {
+        //save: false,
+        crop: {
+          quickCropKey: 67, //key "c"
+          //minHeight: 50,
+          //minWidth: 50,
+          //ratio: 4/3
+        }
+      },
+
+      // Post initialize script
+      initialize: function() {
+        var cropPlugin = this.plugins['crop'];
+        // cropPlugin.selectZone(170, 25, 300, 300);
+        cropPlugin.requireFocus();
+      }
     });
 
-    // "add" rectangle onto canvas
-    canvas.add(rect);
   }
 
   render() {
@@ -57,12 +86,12 @@ export default class Canvas extends Component {
       return <Comment key={c.id} data={c} />
     });
 
+
     return (
-      <div className="col-lg-12 no-padding item-info-wrap canvas-wrap">
+      <div className="col-lg-12 no-padding item-info-wrap canvas-wrap" ref="wrap">
         {/* left column */}
-        <div className="col-sm-12 item-img-wrap no-padding image-tagging" id="main-image-wrap" >
-          <canvas id='tagger' className="frame-tagger-canvas"/>
-          <img src={data.url}  alt="lorem ipsum dolor sit" width="100%" ref="img"/>
+        <div className="image-container" id="main-image-wrap" >
+          <img src={data.url} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img"/>
           {/*<img src={this.props.data.img} className="img-responsive" id="main-image" alt="img" />*/}
           {/*<div className="box-content-overly box-content-overly-white">
            <div className="box-text-table">

@@ -82,7 +82,6 @@ function getPageHtml(appHtml, clientState, hostname, ua) {
 
   scriptHtml += `
           <script src="/ui/unify/plugins/bootstrap/js/bootstrap.min.js"/>
-          <script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js" />
 
           <script type="text/javascript" src="/ui/unify/plugins/back-to-top.js"></script>
           <script type="text/javascript" src="/ui/unify/plugins/smoothScroll.js"></script>
