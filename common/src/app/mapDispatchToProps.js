@@ -3,9 +3,16 @@ import * as todosActions from '../todos/actions';
 import {Map} from 'immutable';
 import {bindActionCreators} from 'redux';
 
+import * as discoverActions from '../discover/actions.js';
+import * as itemActions from '../item/actions.js';
+import * as frameActions from '../frame/actions.js';
+
 const actions = [
   authActions,
-  todosActions
+  todosActions,
+  discoverActions,
+  itemActions,
+  frameActions
 ];
 
 export default function mapDispatchToProps(dispatch) {

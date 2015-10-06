@@ -1,0 +1,77 @@
+/**
+ * Created by yutao on 15/10/6.
+ */
+import './answer.styl';
+import Component from 'react-pure-render/component';
+import React, {PropTypes} from 'react';
+
+export default class Answer extends Component {
+
+  static propTypes = {
+    item: PropTypes.object.isRequired
+  }
+
+  componentDidMount() {
+  }
+
+  render() {
+    const {data} = this.props;
+    const scripts = `
+    `;
+    var commentList = [].map(function(c) {
+      return <Comment data={c} />
+    });//this.state.comments
+
+    return (
+      <div className="col-lg-12 no-padding item-info-wrap">
+        <div className="col-lg-12 no-padding item-header">
+          <div className="author-box">
+            <a className="author-avatar-link" href="http://dongxi.douban.com/people/Sprinna/">
+              <img width="40" height="40" src="http://img3.douban.com/icon/u1660629-24.jpg" alt="苦艾" title="苦艾"/>
+            </a>
+            <a href="http://dongxi.douban.com/people/Sprinna/">心水机器人</a>&nbsp;回答
+            <a className="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist" data-placement="left">
+              <i className="glyphicon glyphicon-heart"/>
+            </a>
+
+          </div>
+        </div>
+        <div className="answer-wrap">
+          <div className="answer-body">
+            <div className="row answer-item-wrap">
+              <div className="answer-item-img-wrap">
+                <img src={data.img} className="img-responsive" alt="img" />
+              </div>
+              <div className="answer-item-content-wrap">
+                <h2 className="">{data.title}</h2>
+                <div className="price"><span>{data.price}</span></div>
+                <div className="details-description">
+                  <p>{this.props.data.comment}</p>
+                </div>
+
+                <div className="answer-footer">
+                  <small class="answer-from">来自: {data.store}</small>
+                </div>
+                <a className="btn btn-primary answer-url">直达链接 <i className="fa fa-chevron-right"></i></a>
+              </div>
+
+            </div>
+          </div>
+          <div className="social-footer">
+            {commentList}
+            <div className="social-comment">
+              <a href className="pull-left">
+                <img alt="image" src={localStorage.getItem("avatar")} />
+              </a>
+              <div className="media-body">
+                <textarea className="form-control" placeholder="写下你的评论..." ref="comment"/>
+                <a className="btn btn-primary hidden comment-btn" onClick={this.comment}>回复</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+}

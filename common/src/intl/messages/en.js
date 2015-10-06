@@ -80,5 +80,9 @@ export default {
     emptyList: 'Nothing. Go outside and enjoy world.',
     newTodoPlaceholder: 'What needs to be done?',
     title: 'Todos'
+  },
+  discover: {
+    title: 'Discover'
   }
+
 };

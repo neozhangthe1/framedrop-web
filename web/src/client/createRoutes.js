@@ -7,6 +7,10 @@ import React from 'react';
 import Todos from './pages/todos.react';
 import {IndexRoute, Route} from 'react-router';
 
+import Discover from './pages/discover.react.js';
+import Item from './pages/item.react.js';
+import Frame from './pages/frame.react.js';
+
 export default function createRoutes(getState) {
 
   function requireAuth(nextState, replaceState) {
@@ -22,6 +26,9 @@ export default function createRoutes(getState) {
       <Route component={Login} path="login" />
       <Route component={Me} onEnter={requireAuth} path="me" />
       <Route component={Todos} path="todos" />
+      <Route component={Discover} path="discover" />
+      <Route component={Item} path="product/:id" />
+      <Route component={Frame} path="frame/:id" />
       <Route component={NotFound} path="*" />
     </Route>
   );

@@ -40,6 +40,21 @@ ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
           <title>{title}</title>
           {linkStyles}
           {analytics}
+          <link href="/ui/unify/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+          <link href="/ui/unify/css/style.css" rel="stylesheet"/>
+          <link href="/ui/unify/css/headers/header-v6.css" rel="stylesheet"/>
+          <link href="/ui/unify/css/theme-colors/red.css" rel="stylesheet"/>
+          <link href="/ui/unify/css/custom.css" rel="stylesheet"/>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css"/>
+          <link rel="stylesheet" href="/ui/unify/plugins/line-icons/line-icons.css"/>
+          <link rel="stylesheet" href="/ui/unify/plugins/animate.css"/>
+          <link rel="stylesheet" href="/ui/unify/plugins/fancybox/source/jquery.fancybox.css"/>
+          <link rel="stylesheet" href="/ui/unify/plugins/owl-carousel/owl-carousel/owl.carousel.css"/>
+          <link rel="stylesheet" href="/ui/unify/plugins/master-slider/masterslider/style/masterslider.css"/>
+          <link rel='stylesheet' href="/ui/unify/plugins/master-slider/masterslider/skins/black-2/style.css"/>
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+          <script type="text/javascript" src="/ui/unify/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
         </head>
         <body dangerouslySetInnerHTML={{__html: bodyHtml}} />
       </html>

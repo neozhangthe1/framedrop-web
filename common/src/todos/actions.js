@@ -22,7 +22,7 @@ export function addTodo(todo) {
     type: ADD_TODO,
     payload: {todo}
   };
-};
+}
 
 export function deleteTodo(id) {
   return {

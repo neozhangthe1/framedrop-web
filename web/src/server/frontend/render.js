@@ -12,6 +12,8 @@ import {IntlProvider} from 'react-intl';
 import {Provider} from 'react-redux';
 import {RoutingContext, match} from 'react-router';
 
+import DynamicScripts from '../lib/dynamicscript.js'
+
 export default function render(req, res, next) {
   createStore(req)
     .then(store => renderPage(store, req, res, next))
@@ -77,6 +79,29 @@ function getPageHtml(appHtml, clientState, hostname, ua) {
     </script>
     <script src="${appScriptSrc}"></script>
   `;
+
+  scriptHtml += `
+          <script src="/ui/unify/plugins/bootstrap/js/bootstrap.min.js"/>
+          <script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js" />
+
+          <script type="text/javascript" src="/ui/unify/plugins/back-to-top.js"></script>
+          <script type="text/javascript" src="/ui/unify/plugins/smoothScroll.js"></script>
+          <script type="text/javascript" src="/ui/unify/plugins/jquery.parallax.js"></script>
+          <script src="/ui/unify/plugins/master-slider/masterslider/masterslider.min.js"></script>
+          <script src="/ui/unify/plugins/master-slider/masterslider/jquery.easing.min.js"></script>
+          <script type="text/javascript" src="/ui/unify/plugins/counter/waypoints.min.js"></script>
+          <script type="text/javascript" src="/ui/unify/plugins/counter/jquery.counterup.min.js"></script>
+          <script type="text/javascript" src="/ui/unify/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
+
+          <script type="text/javascript" src="/ui/unify/js/custom.js"></script>
+          <script type="text/javascript" src="/ui/unify/js/plugins/fancy-box.js"></script>
+          <script type="text/javascript" src="/ui/unify/js/plugins/master-slider-fw.js"></script>
+
+          <script type="text/javascript" src="/ui/unify/js/plugins/owl-carousel.js"></script>
+
+  `;
+
+  scriptHtml += DynamicScripts.rewind() || "";
 
   const title = DocumentTitle.rewind();
 
