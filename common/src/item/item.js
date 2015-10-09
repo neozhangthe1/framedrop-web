@@ -9,6 +9,7 @@ const Item = Record({
   img: '',
   width: 0,
   height: 0,
+  fid: "",
   product_img: "",
   product_img_width: 0,
   product_img_height: 0,

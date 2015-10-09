@@ -62,7 +62,7 @@ export default class Frame extends Component {
                //  <Breadcrumb category={this.state.category}/>
                //</div>*/}
               <div className="row transitionfx">
-                <div className="col-lg-8">
+                <div className="col-md-8">
                   {(frame.url) ? <Canvas data={frame}/> : null}
 
                 </div>

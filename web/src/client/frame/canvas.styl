@@ -1,20 +1,114 @@
 @import '../../../../assets/js/darkroom/build/darkroom.css'
 
-image-container {
-  display: inline-block;
-  max-width: 100%;
-  background: white;
-  padding: 10px;
-  margin: 5px 0;
-  border: 1px solid #e2e2e2;
-  border-bottom: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-}
+.image-container
+  overflow: hidden
 
-.image-container.target {
+.image-container.target
   margin-top: 40px;
+
+.image-container img
+  max-width: 100%;
+
+.item-img-active-wrap
+  top 0
+
+.image-container:hover .item-img-active-wrap.item-tag-guide
+  display: block
+
+.tagging .item-img-active-wrap.item-tag-guide
+  display none !important
+
+.item-img-active-wrap.item-tag-choice
+  display none
+
+.tagging .item-img-active-wrap.item-tag-choice
+  display block !important
+
+.item-img-active-wrap
+  z-index 2
+  position: absolute
+  display: none
+
+.item-img-active-wrap
+  background: rgba(255,255,255,.3) !important;
+  width: 100%;
+  overflow: visible;
+  height: 100%;
+
+.item-img-active-wrap.black
+  background: rgba(0,0,0,.3) !important;
+
+.cbp-l-caption-alignCenter {
+  display: table;
+  width: 100%;
+  height: 100%;
 }
 
-.image-container img {
-  max-width: 100%;
+.cbp-l-caption-alignCenter .cbp-l-caption-body {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.link-captions {
+  padding-left: 0;
+  margin: 0 0 20px;
+  list-style: none;
+  text-align: center;
+}
+
+.link-captions li {
+  padding: 0 2px;
+  display: inline-block;
+}
+
+.cbp-title-dark .cbp-l-grid-agency-title {
+  color: #444 !important;
+}
+.cbp-l-grid-agency-title {
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+}
+.cbp-l-grid-agency-title {
+  margin-top: 18px;
+  font: 700 17px/24px Lato,sans-serif;
+  color: #666;
+  text-align: center;
+}
+.cbp-l-grid-agency-title, .cbp-l-grid-agency-desc, .cbp-l-grid-work-title, .cbp-l-grid-work-desc, .cbp-l-grid-blog-title, .cbp-l-grid-projects-title, .cbp-l-grid-projects-desc, .cbp-l-grid-masonry-projects-title, .cbp-l-grid-masonry-projects-desc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-captions li i {
+  color: #444;
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  font-style: 14px;
+  background: #fff;
+  text-align: center;
+  display: inline-block;
+}
+
+.cbp-l-caption-alignCenter .item-img-active-body {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.link-captions li i:hover {
+  color: #fff;
+  background: #72c02c;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }

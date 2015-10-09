@@ -70,6 +70,7 @@ export default class ItemPhoto extends Component {
                data-placement="left">
               <i className="glyphicon glyphicon-heart"/>
             </a>
+            <a className="btn btn-default" href={"/frame/" + item.fid}>返回帧</a>
           </div>
         </div>
         {/* left column */}
@@ -112,9 +113,6 @@ export default class ItemPhoto extends Component {
           <div className="social-footer">
             {/*commentList*/}
             <div className="social-comment">
-              <a href className="pull-left">
-                <img alt="image" src='{localStorage.getItem("avatar")}' />
-              </a>
               <div className="media-body">
                 <textarea className="form-control" placeholder="写下你的评论..." ref="comment"/>
                 <a className="btn btn-primary hidden comment-btn" onClick={this.comment}>回复</a>

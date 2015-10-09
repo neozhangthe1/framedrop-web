@@ -60,9 +60,6 @@ export default class Answer extends Component {
           <div className="social-footer">
             {commentList}
             <div className="social-comment">
-              <a href className="pull-left">
-                <img alt="image" src={localStorage.getItem("avatar")} />
-              </a>
               <div className="media-body">
                 <textarea className="form-control" placeholder="写下你的评论..." ref="comment"/>
                 <a className="btn btn-primary hidden comment-btn" onClick={this.comment}>回复</a>

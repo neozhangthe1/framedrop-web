@@ -4,6 +4,25 @@
 import "./canvas.styl";
 import Component from 'react-pure-render/component';
 import React, {PropTypes} from 'react';
+import ReactDom from 'react-dom';
+import classNames from 'classnames'
+
+let isClient = typeof window !== "undefined";
+let Tagger = isClient ? require('./tagger.react') : function() {};
+
+
+var getPosition = (element) => {
+  var xPosition = 0;
+  var yPosition = 0;
+
+  while (element) {
+    xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+    yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+    element = element.offsetParent;
+  }
+  return { x: xPosition, y: yPosition, tagging: false };
+}
+
 
 export default class Canvas extends Component {
 
@@ -11,63 +30,31 @@ export default class Canvas extends Component {
     data: React.PropTypes.object.isRequired
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {w: 0, h: 0};
+    this.addTag = this.addTag.bind(this);
+  }
+
   componentDidMount() {
-    //var that = this;
-    //console.log(this.props.data);
     var w = this.props.data.width;
     var h = this.props.data.height;
-    //if (w < 1000) {
-    //  w = 1000;
-    //  h = 1000 / this.props.data.width * this.props.data.height;
-    //}
-    h = React.findDOMNode(this.refs.wrap).offsetWidth / w * h;
-    w = React.findDOMNode(this.refs.wrap).offsetWidth;
-    // create a wrapper around native canvas element (with id="c")
-    //var canvas = new fabric.Canvas('tagger');
-    console.log(React.findDOMNode(this.refs.wrap));
-    console.log(h);
-    //canvas.setWidth(w);
-    //canvas.setHeight(h);
-    //
-    //// create a rectangle object
-    //var rect = new fabric.Rect({
-    //  left: 100,
-    //  top: 100,
-    //  fill: 'red',
-    //  width: 20,
-    //  height: 20
-    //});
-    //
-    //// "add" rectangle onto canvas
-    //canvas.add(rect);
 
-    var dkrm = new Darkroom('#item-img', {
-      // Size options
-      minWidth: w,
-      minHeight: h,
-      maxWidth: w,
-      maxHeight: h,
-      backgroundColor: '#000',
+    h = ReactDom.findDOMNode(this.refs.wrap).offsetWidth / w * h;
+    w = ReactDom.findDOMNode(this.refs.wrap).offsetWidth;
 
-      // Plugins options
-      plugins: {
-        //save: false,
-        crop: {
-          quickCropKey: 67, //key "c"
-          //minHeight: 50,
-          //minWidth: 50,
-          //ratio: 4/3
-        }
-      },
+    this.setState({w: w, h: h});
 
-      // Post initialize script
-      initialize: function() {
-        var cropPlugin = this.plugins['crop'];
-        // cropPlugin.selectZone(170, 25, 300, 300);
-        cropPlugin.requireFocus();
-      }
-    });
 
+  }
+
+  addTag(e) {
+    if (e.button !== 0) return;
+    var parentPosition = getPosition(e.relatedTarget);
+    var x = e.nativeEvent.offsetX;
+    var y = e.nativeEvent.offsetY;
+    this.setState({x: x, y: y, tagging: true});
+    console.log(this.state)
   }
 
   render() {
@@ -90,8 +77,46 @@ export default class Canvas extends Component {
     return (
       <div className="col-lg-12 no-padding item-info-wrap canvas-wrap" ref="wrap">
         {/* left column */}
-        <div className="image-container" id="main-image-wrap" >
-          <img src={data.url} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img"/>
+        <div className={classNames("image-container", {tagging: this.state.tagging})} id="main-image-wrap" style={{height: this.state.h}} onClick={this.addTag}>
+          {/*<Tagger
+            src={data.url}
+            style={{height: 'auto', width: '100%'}}
+            // Cropper.js options
+            //aspectRatio={16 / 9}
+            backgroud={false}
+            //autoCropArea={0.3}
+            autoCrop={false}
+            zoomable={false}
+            guides={true}
+            ref='cropper'
+            crop={this._crop} />*/}
+          <div className="item-img-wrap">
+            <img src={data.url} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img" />
+          </div>
+          <div className="item-img-active-wrap item-tag-guide" style={{height: this.state.h}}>
+            <div className="cbp-l-caption-alignCenter">
+              <div className="item-img-active-body">
+                {/*<ul className="link-captions">
+                  <li><a href="portfolio_single_item.html"><i className="rounded-x fa fa-link" /></a></li>
+                  <li><a href="assets/img/main/img4.jpg" className="cbp-lightbox" data-title="Design Object"><i className="rounded-x fa fa-search" /></a></li>
+                </ul>*/}
+                <div className="cbp-l-grid-agency-title">点击图片中感兴趣的地方</div>
+                {/*<div className="cbp-l-grid-agency-desc">点击图片中感兴趣的地方</div>*/}
+              </div>
+            </div>
+          </div>
+          <div className="item-img-active-wrap item-tag-choice black" style={{height: this.state.h}}>
+            <div className="cbp-l-caption-alignCenter">
+              <div className="item-img-active-body">
+                <ul className="link-captions">
+                 <li><a href="portfolio_single_item.html"><i className="rounded-x fa fa-link" /></a></li>
+                 <li><a href="assets/img/main/img4.jpg" className="cbp-lightbox" data-title="Design Object"><i className="rounded-x fa fa-search" /></a></li>
+                 </ul>
+              </div>
+            </div>
+          </div>
+
+
           {/*<img src={this.props.data.img} className="img-responsive" id="main-image" alt="img" />*/}
           {/*<div className="box-content-overly box-content-overly-white">
            <div className="box-text-table">
@@ -123,9 +148,7 @@ export default class Canvas extends Component {
           <div className="social-footer">
             {commentList}
             <div className="social-comment">
-              <a href className="pull-left">
-                <img alt="image" src='{localStorage.getItem("avatar")}' />
-              </a>
+
               <div className="media-body">
                 <textarea className="form-control" placeholder="写下你的评论..." ref="comment"/>
                 <a className="btn btn-primary hidden comment-btn" onClick={this.comment}>回复</a>

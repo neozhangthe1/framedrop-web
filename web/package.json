@@ -62,12 +62,15 @@
     "nyan-progress-webpack-plugin": "^1.0.0",
     "postcss-loader": "^0.6.0",
     "react": "^0.14.0-rc1",
+    "react-cropper": "^0.4.0",
     "react-document-title": "^2.0.0",
     "react-dom": "^0.14.0-rc1",
     "react-intl": "^2.0.0-pr-1",
+    "react-masonry-component": "1.0.4",
     "react-pure-render": "^1.0.1",
     "react-redux": "^2.1.2",
     "react-router": "^1.0.0-rc1",
+    "react-side-effect": "1.0.2",
     "react-textarea-autosize": "^2.3.1",
     "react-transform-catch-errors": "^0.2.0",
     "react-transform-hmr": "^0.1.6",
@@ -86,10 +89,8 @@
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.1.0",
     "yargs": "^3.3.1",
-    "react-side-effect": "1.0.2",
-    "react-masonry-component": "1.0.4",
-    "fabric": "1.5.0",
-    "darkroom": "2.0.0"
+    "cropper": "^0.11.1",
+    "classnames": "^2.1.5"
   },
   "disabledDependencies": {
     "karma": "^0.13.3",

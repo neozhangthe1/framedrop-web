@@ -45,6 +45,7 @@ export default class Header extends Component {
               <div className="navbar-brand">
                 <a href="/">
                   <img className="shrink-logo" src="/assets/img/framedrop.png" alt="Logo"/>
+                  <img className="expand-logo" src="/assets/img/framedrop-white.png" alt="Logo"/>
                 </a>
               </div>
               {/* ENd Navbar Brand */}
