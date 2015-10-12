@@ -1,5 +1,5 @@
 {
-  "name": "framedrop/web",
+  "name": "framedrop-web",
   "description": "The most complete dev stack for React/Flux universal web apps.",
   "author": "Daniel Steigerwald",
   "contributors": [
