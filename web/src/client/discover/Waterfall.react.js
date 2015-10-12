@@ -68,10 +68,10 @@ export default class Waterfall extends Component {
 
       return (
         <div className="grid-boxes-in">
-          <a href={"/product/" + item.id}>
+          <a href={"/poi/" + item.id}>
             <img className="img-responsive item-photo" src={item.img} style={styles} alt />
           </a>
-          <a href={"/product/" + item.id}>
+          <a href={"/poi/" + item.id}>
             <img className="img-responsive item-photo" src={item.product_img} style={product_styles} alt />
           </a>
           <div className="grid-boxes-caption">

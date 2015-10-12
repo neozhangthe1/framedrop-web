@@ -4,12 +4,12 @@
 import Component from 'react-pure-render/component';
 import DocumentTitle from 'react-document-title';
 import React, {PropTypes} from 'react';
-import ItemPhoto from '../item/itemPhoto.react.js';
+import ItemPhoto from '../poi/itemPhoto.react.js';
 import DynamicScripts from '../../server/lib/dynamicscript.js'
 import Header from '../app/header.react.js';
-import Answer from '../item/answer.react.js';
+import Answer from '../poi/answer.react.js';
 
-export default class Item extends Component {
+export default class POI extends Component {
 
   static propTypes = {
     actions: PropTypes.object,

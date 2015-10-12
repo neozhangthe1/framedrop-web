@@ -52,6 +52,7 @@ ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
           <link rel="stylesheet" href="/ui/unify/plugins/owl-carousel/owl-carousel/owl.carousel.css"/>
           <link rel="stylesheet" href="/ui/unify/plugins/master-slider/masterslider/style/masterslider.css"/>
           <link rel='stylesheet' href="/ui/unify/plugins/master-slider/masterslider/skins/black-2/style.css"/>
+          <link rel='stylesheet' href="/iconmoon/style.css"/>
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
           <script type="text/javascript" src="/ui/unify/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>

@@ -8,7 +8,7 @@ import Todos from './pages/todos.react';
 import {IndexRoute, Route} from 'react-router';
 
 import Discover from './pages/discover.react.js';
-import Item from './pages/item.react.js';
+import POI from './pages/poi.react.js';
 import Frame from './pages/frame.react.js';
 
 export default function createRoutes(getState) {
@@ -27,7 +27,7 @@ export default function createRoutes(getState) {
       <Route component={Me} onEnter={requireAuth} path="me" />
       <Route component={Todos} path="todos" />
       <Route component={Discover} path="discover" />
-      <Route component={Item} path="product/:id" />
+      <Route component={POI} path="poi/:id" />
       <Route component={Frame} path="frame/:id" />
       <Route component={NotFound} path="*" />
     </Route>

@@ -2,6 +2,7 @@
 
 .image-container
   overflow: hidden
+  background rgb(248, 248, 248)
 
 .image-container.target
   margin-top: 40px;
@@ -29,6 +30,10 @@
   position: absolute
   display: none
 
+.item-img-wrap
+  text-align center
+
+
 .item-img-active-wrap
   background: rgba(255,255,255,.3) !important;
   width: 100%;
@@ -37,6 +42,10 @@
 
 .item-img-active-wrap.black
   background: rgba(0,0,0,.3) !important;
+
+.points-wrap
+  position: absolute
+  top 0
 
 .cbp-l-caption-alignCenter {
   display: table;
@@ -59,7 +68,7 @@
 }
 
 .link-captions li {
-  padding: 0 2px;
+  padding: 0 10px;
   display: inline-block;
 }
 
@@ -94,14 +103,18 @@
   font-style: 14px;
   background: #fff;
   text-align: center;
-  display: inline-block;
+  display: block;
 }
+
+.link-captions li span
+  padding-top 5px
+  color white
 
 .cbp-l-caption-alignCenter .item-img-active-body {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: bottom;
   text-align: center;
-  padding: 10px 0;
+  padding: 30px 0;
 }
 
 .link-captions li i:hover {
@@ -111,4 +124,41 @@
   -moz-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
+}
+
+.annotation
+  position: absolute
+  .marker
+    position: absolute
+    width: 20px
+    height: 20px
+  .marker-inner
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    border: solid 4px white;
+    background-clip: border-box;
+    background: #0b9ed4;
+    -moz-box-shadow: 0 0 0 1px rgba(0,0,0,0.3),0 0 0 2px rgba(0,0,0,0.2),0 5px 4px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.3),0 0 0 2px rgba(0,0,0,0.2),0 5px 4px rgba(0,0,0,0.4);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.3),0 0 0 2px rgba(0,0,0,0.2),0 5px 4px rgba(0,0,0,0.4);
+    -moz-transition: border-color 5s linear;
+    -o-transition: border-color 5s linear;
+    -webkit-transition: border-color 5s linear;
+    transition: border-color 5s linear;
+
+.marker-inner.open {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.marker-inner {
+  width: 15px !important;
+  height: 15px !important;
 }

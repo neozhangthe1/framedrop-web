@@ -7,10 +7,6 @@ import React, {PropTypes} from 'react';
 import ReactDom from 'react-dom';
 import classNames from 'classnames'
 
-let isClient = typeof window !== "undefined";
-let Tagger = isClient ? require('./tagger.react') : function() {};
-
-
 var getPosition = (element) => {
   var xPosition = 0;
   var yPosition = 0;
@@ -20,7 +16,7 @@ var getPosition = (element) => {
     yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
     element = element.offsetParent;
   }
-  return { x: xPosition, y: yPosition, tagging: false };
+  return {x: xPosition, y: yPosition};
 }
 
 
@@ -32,20 +28,25 @@ export default class Canvas extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {w: 0, h: 0};
+    this.state = {w: 0, h: 0, wrapW: 0, wrapH: 0, tagging: false, points: []};
     this.addTag = this.addTag.bind(this);
   }
 
   componentDidMount() {
-    var w = this.props.data.width;
-    var h = this.props.data.height;
+    var wrapW, w = this.props.data.width;
+    var wrapH, h = this.props.data.height;
 
-    h = ReactDom.findDOMNode(this.refs.wrap).offsetWidth / w * h;
-    w = ReactDom.findDOMNode(this.refs.wrap).offsetWidth;
+    if (w > ReactDom.findDOMNode(this.refs.wrap).offsetWidth) {
+      h = ReactDom.findDOMNode(this.refs.wrap).offsetWidth / w * h;
+      w = ReactDom.findDOMNode(this.refs.wrap).offsetWidth;
+      wrapW = w;
+      wrapH = h;
+    } else {
+      wrapW = ReactDom.findDOMNode(this.refs.wrap).offsetWidth
+    }
 
-    this.setState({w: w, h: h});
-
-
+    this.setState({w: w, h: h, wrapW: wrapW, wrapH: wrapH});
+    console.log(this.state)
   }
 
   addTag(e) {
@@ -54,6 +55,7 @@ export default class Canvas extends Component {
     var x = e.nativeEvent.offsetX;
     var y = e.nativeEvent.offsetY;
     this.setState({x: x, y: y, tagging: true});
+    this.setState("points", this.state.points.push({x: x, y: y}));
     console.log(this.state)
   }
 
@@ -69,39 +71,35 @@ export default class Canvas extends Component {
       icon = "fa fa-tv";
       url = "/tv/" + this.props.data.src_id;
     }
-    var commentList = [].map(function(c) {
-      return <Comment key={c.id} data={c} />
+    var commentList = [].map(function (c) {
+      return <Comment key={c.id} data={c}/>
+    });
+
+    var pointsElem = this.state.points.map((p, i) => {
+      return <aside className="annotation comment-group separator-between-all-comments open" key={i} style={{top: p.y - 12, left: p.x - 12}}>
+        <i className="marker">
+          <i className="marker-inner" style={{background:'#0b9ed4'}}></i>
+        </i>
+      </aside>
     });
 
 
     return (
       <div className="col-lg-12 no-padding item-info-wrap canvas-wrap" ref="wrap">
         {/* left column */}
-        <div className={classNames("image-container", {tagging: this.state.tagging})} id="main-image-wrap" style={{height: this.state.h}} onClick={this.addTag}>
-          {/*<Tagger
-            src={data.url}
-            style={{height: 'auto', width: '100%'}}
-            // Cropper.js options
-            //aspectRatio={16 / 9}
-            backgroud={false}
-            //autoCropArea={0.3}
-            autoCrop={false}
-            zoomable={false}
-            guides={true}
-            ref='cropper'
-            crop={this._crop} />*/}
+        <div className={classNames("image-container", {tagging: this.state.tagging})} id="main-image-wrap"
+             style={{height: this.state.wrapH}} onClick={this.addTag}>
+
           <div className="item-img-wrap">
-            <img src={data.url} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img" />
+            <img src={data.url} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img" style={{width: this.state.w, height: this.state.h}}/>
+          </div>
+          <div className="points-wrap" style={{height: this.state.wrapH, width: "100%"}}>
+            {pointsElem}
           </div>
           <div className="item-img-active-wrap item-tag-guide" style={{height: this.state.h}}>
             <div className="cbp-l-caption-alignCenter">
               <div className="item-img-active-body">
-                {/*<ul className="link-captions">
-                  <li><a href="portfolio_single_item.html"><i className="rounded-x fa fa-link" /></a></li>
-                  <li><a href="assets/img/main/img4.jpg" className="cbp-lightbox" data-title="Design Object"><i className="rounded-x fa fa-search" /></a></li>
-                </ul>*/}
                 <div className="cbp-l-grid-agency-title">点击图片中感兴趣的地方</div>
-                {/*<div className="cbp-l-grid-agency-desc">点击图片中感兴趣的地方</div>*/}
               </div>
             </div>
           </div>
@@ -109,9 +107,27 @@ export default class Canvas extends Component {
             <div className="cbp-l-caption-alignCenter">
               <div className="item-img-active-body">
                 <ul className="link-captions">
-                 <li><a href="portfolio_single_item.html"><i className="rounded-x fa fa-link" /></a></li>
-                 <li><a href="assets/img/main/img4.jpg" className="cbp-lightbox" data-title="Design Object"><i className="rounded-x fa fa-search" /></a></li>
-                 </ul>
+                  <li><a href="portfolio_single_item.html">
+                    <i className="rounded-x icon-package"/></a>
+                    <span>东西</span>
+                  </li>
+                  <li><a href="portfolio_single_item.html">
+                    <i className="rounded-x fa icon-t-shirt"/></a>
+                    <span>穿搭</span>
+                  </li>
+                  <li><a href="portfolio_single_item.html">
+                    <i className="rounded-x fa icon-food2"/></a>
+                    <span>美食</span>
+                  </li>
+                  <li><a href="portfolio_single_item.html">
+                    <i className="rounded-x fa icon-shop"/></a>
+                    <span>家居</span>
+                  </li>
+                  <li><a href="assets/img/main/img4.jpg" className="cbp-lightbox" data-title="Design Object">
+                    <i className="rounded-x icon-location"/></a>
+                    <span>地点</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

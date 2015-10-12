@@ -4,7 +4,7 @@
 import Component from 'react-pure-render/component';
 import DocumentTitle from 'react-document-title';
 import React, {PropTypes} from 'react';
-import ItemPhoto from '../item/itemPhoto.react.js';
+import ItemPhoto from '../poi/itemPhoto.react.js';
 import DynamicScripts from '../../server/lib/dynamicscript.js'
 import Header from '../app/header.react.js';
 import Canvas from '../frame/canvas.react.js';

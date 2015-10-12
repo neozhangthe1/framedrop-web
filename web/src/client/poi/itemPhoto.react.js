@@ -4,6 +4,8 @@
 import './itemPhoto.styl';
 import Component from 'react-pure-render/component';
 import React, {PropTypes} from 'react';
+import classNames from 'classnames'
+import ReactDom from 'react-dom';
 
 export default class ItemPhoto extends Component {
 
@@ -11,31 +13,26 @@ export default class ItemPhoto extends Component {
     item: PropTypes.object.isRequired
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {w: 0, h: 0, wrapW: 0, wrapH: 0, tagging: false, points: []};
+  }
+
   componentDidMount() {
-    const {item} = this.props;
-    var w = item.width;
-    var h = item.height;
-    if (w < 1000) {
-      w = 1000;
-      h = 1000 / item.width * item.height;
+    var wrapW, w = this.props.item.width;
+    var wrapH, h = this.props.item.height;
+
+    if (w > ReactDom.findDOMNode(this.refs.wrap).offsetWidth) {
+      h = ReactDom.findDOMNode(this.refs.wrap).offsetWidth / w * h;
+      w = ReactDom.findDOMNode(this.refs.wrap).offsetWidth;
+      wrapW = w;
+      wrapH = h;
+    } else {
+      wrapW = ReactDom.findDOMNode(this.refs.wrap).offsetWidth
     }
-    var MSThumbnail = function () {
-      return {
-        initMSThumbnail: function () {
-          var slider = new MasterSlider();
-          slider.setup('masterslider', {
-            width: w,
-            height: h,
-            fullwidth: true,
-            centerControls: false,
-            speed: 18,
-            view: 'flow'
-          });
-          slider.control('arrows');
-        }
-      };
-    }();
-    MSThumbnail.initMSThumbnail();
+
+    this.setState({w: w, h: h, wrapW: wrapW, wrapH: wrapH});
+    console.log(this.state)
   }
 
   render() {
@@ -55,7 +52,7 @@ export default class ItemPhoto extends Component {
     });*/}
 
     return (
-      <div className="col-lg-12 no-padding item-info-wrap canvas-wrap">
+      <div className="col-lg-12 no-padding item-info-wrap canvas-wrap" ref="wrap">
         <div className="col-lg-12 no-padding item-header">
           <div className="author-box">
             <a className="author-avatar-link" href="http://dongxi.douban.com/people/Sprinna/">
@@ -76,31 +73,16 @@ export default class ItemPhoto extends Component {
         {/* left column */}
         <div className="col-sm-12 item-img-wrap no-padding image-tagging" id="main-image-wrap" >
           {/*<canvas id='tagger'/>*/}
-          <div className="master-slider" id="masterslider">
-            <div className="ms-slide">
-              {/* slide background  */}
-              <img src={item.img.split("?")[0]} data-src={item.img.split("?")[0]} alt="lorem ipsum dolor sit" />
+          <div className={classNames("image-container")} id="main-image-wrap" style={{height: this.state.wrapH}} >
+
+            <div className="item-img-wrap">
+              <img src={item.img} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img" style={{width: this.state.w, height: this.state.h}}/>
+            </div>
+            <div className="points-wrap" style={{height: this.state.wrapH, width: "100%"}}>
+              {/*pointsElem*/}
             </div>
           </div>
-          {/*<img src={item.img} className="img-responsive" id="main-image" alt="img" />*/}
-          {/*<div className="box-content-overly box-content-overly-white">
-           <div className="box-text-table">
-           <div className="box-text-cell ">
-           <div className="box-text-cell-inner dark">
-           <a className="btn btn-inverse btn-tagging"> 东西</a>
-           <a className="btn btn-inverse btn-tagging"> 地点</a>
-           <a className="btn btn-inverse btn-tagging"> 美食</a>
-           <a className="btn btn-inverse btn-tagging"> 穿搭</a>
-           <a className="btn btn-inverse btn-tagging"> 台词</a>
-           </div>
-           </div>
-           </div>
-           </div>*/}
-          {/* product Image and Zoom
-           <div className="main-image sp-wrap col-lg-12 no-padding style2 style2look2">
-           <a href="/skin/tshop/images/zoom/zoom1hi.jpg"><img src={item.img} className="img-responsive" alt="img" /></a>
-           </div>
-           */}
+
         </div>
         {/*/ left column end */}
         <div className="col-sm-12 tag-zone">
