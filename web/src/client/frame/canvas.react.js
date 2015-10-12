@@ -132,26 +132,6 @@ export default class Canvas extends Component {
             </div>
           </div>
 
-
-          {/*<img src={this.props.data.img} className="img-responsive" id="main-image" alt="img" />*/}
-          {/*<div className="box-content-overly box-content-overly-white">
-           <div className="box-text-table">
-           <div className="box-text-cell ">
-           <div className="box-text-cell-inner dark">
-           <a className="btn btn-inverse btn-tagging"> 东西</a>
-           <a className="btn btn-inverse btn-tagging"> 地点</a>
-           <a className="btn btn-inverse btn-tagging"> 美食</a>
-           <a className="btn btn-inverse btn-tagging"> 穿搭</a>
-           <a className="btn btn-inverse btn-tagging"> 台词</a>
-           </div>
-           </div>
-           </div>
-           </div>*/}
-          {/* product Image and Zoom
-           <div className="main-image sp-wrap col-lg-12 no-padding style2 style2look2">
-           <a href="/skin/tshop/images/zoom/zoom1hi.jpg"><img src={this.props.data.img} className="img-responsive" alt="img" /></a>
-           </div>
-           */}
         </div>
         {/*/ left column end */}
         <div className="col-sm-12 tag-zone">

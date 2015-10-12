@@ -10,7 +10,6 @@ import ReactDom from 'react-dom';
 export default class ItemPhoto extends Component {
 
   static propTypes = {
-    item: PropTypes.object.isRequired
   }
 
   constructor(props) {

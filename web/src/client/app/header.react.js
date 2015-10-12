@@ -93,32 +93,37 @@ export default class Header extends Component {
           </div>
         </div>
         <div className="secondary-nav">
-          <div className="container container-space">
+          <div className="container container-space ">
             <div className="menu-container row">
-              <ul className="nav navbar-nav col-md-6 col-centered">
+              <ul className="nav navbar-nav col-md-6  pull-left">
                 <li className={"nav-item " + ((this.props.tab === "product") ? "active" : "")}>
                   <a href="/product">
+                    <i className="icon-package"> </i>
                     东西
-                  </a>
-                </li>
-                <li className={"nav-item " + ((this.props.tab === "location") ? "active" : "")}>
-                  <a href="/location">
-                    地点
                   </a>
                 </li>
                 <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
                   <a href="/fashion">
+                    <i className="icon-t-shirt"> </i>
                     穿搭
                   </a>
                 </li>
                 <li className={"nav-item " + ((this.props.tab === "food") ? "active" : "")}>
                   <a href="/food">
+                    <i className="icon-food2"> </i>
                     美食
                   </a>
                 </li>
                 <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
                   <a href="/fashion">
+                    <i className="icon-shop"> </i>
                     家居
+                  </a>
+                </li>
+                <li className={"nav-item " + ((this.props.tab === "location") ? "active" : "")}>
+                  <a href="/location">
+                    <i className="icon-location"> </i>
+                    地点
                   </a>
                 </li>
                 {/*<li className={(this.props.tab === "queue") ? "active" : ""}>
