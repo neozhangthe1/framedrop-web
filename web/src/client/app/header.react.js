@@ -14,28 +14,57 @@ export default class Header extends Component {
   render() {
     const {msg, viewer, tab} = this.props;
 
-    //return (
-    //  <header>
-    //    <h1>
-    //      <Link to="/">{msg.h1}</Link>
-    //    </h1>
-    //    <ul>
-    //      <li><Link activeClassName="active" to="/todos">{msg.todos}</Link></li>
-    //      <li><Link activeClassName="active" to="/me">{msg.me}</Link></li>
-    //      {!viewer &&
-    //        <li><Link activeClassName="active" to="/login">{msg.login}</Link></li>
-    //      }
-    //    </ul>
-    //  </header>
-    //);
+    var discoverNav = <div className="secondary-nav">
+      <div className="container container-space">
+        <div className="menu-container row">
+          <ul className="nav navbar-nav col-md-6  pull-left">
+            <li className={"nav-item " + ((this.props.tab === "product") ? "active" : "")}>
+              <a href="/product">
+                <i className="icon-package"> </i>
+                东西
+              </a>
+            </li>
+            <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
+              <a href="/fashion">
+                <i className="icon-t-shirt"> </i>
+                穿搭
+              </a>
+            </li>
+            <li className={"nav-item " + ((this.props.tab === "food") ? "active" : "")}>
+              <a href="/food">
+                <i className="icon-food2"> </i>
+                美食
+              </a>
+            </li>
+            <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
+              <a href="/fashion">
+                <i className="icon-shop"> </i>
+                家居
+              </a>
+            </li>
+            <li className={"nav-item " + ((this.props.tab === "location") ? "active" : "")}>
+              <a href="/location">
+                <i className="icon-location"> </i>
+                地点
+              </a>
+            </li>
+            {/*<li className={(this.props.tab === "queue") ? "active" : ""}>
+             <a href="/queue">
+             队列
+             </a>
+             </li>*/}
+          </ul>
+        </div>
+      </div>
+    </div>
+
     return (
       <div>
         <div className="navbar mega-menu" role="navigation">
           <div className="container container-space">
             {/* Brand and toggle get grouped for better mobile display */}
             <div className="menu-container ">
-              <button type="button" className="navbar-toggle" data-toggle="collapse"
-                      data-target=".navbar-responsive-collapse">
+              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                 <span className="sr-only">Toggle navigation</span>
                 <span className="icon-bar"/>
                 <span className="icon-bar"/>
@@ -92,49 +121,8 @@ export default class Header extends Component {
             {/*/navbar-collapse*/}
           </div>
         </div>
-        <div className="secondary-nav">
-          <div className="container container-space ">
-            <div className="menu-container row">
-              <ul className="nav navbar-nav col-md-6  pull-left">
-                <li className={"nav-item " + ((this.props.tab === "product") ? "active" : "")}>
-                  <a href="/product">
-                    <i className="icon-package"> </i>
-                    东西
-                  </a>
-                </li>
-                <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
-                  <a href="/fashion">
-                    <i className="icon-t-shirt"> </i>
-                    穿搭
-                  </a>
-                </li>
-                <li className={"nav-item " + ((this.props.tab === "food") ? "active" : "")}>
-                  <a href="/food">
-                    <i className="icon-food2"> </i>
-                    美食
-                  </a>
-                </li>
-                <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
-                  <a href="/fashion">
-                    <i className="icon-shop"> </i>
-                    家居
-                  </a>
-                </li>
-                <li className={"nav-item " + ((this.props.tab === "location") ? "active" : "")}>
-                  <a href="/location">
-                    <i className="icon-location"> </i>
-                    地点
-                  </a>
-                </li>
-                {/*<li className={(this.props.tab === "queue") ? "active" : ""}>
-                 <a href="/queue">
-                 队列
-                 </a>
-                 </li>*/}
-              </ul>
-            </div>
-          </div>
-        </div>
+
+        {(this.props.tab === "discover") ? discoverNav : null}
       </div>
     );
   }

@@ -99,7 +99,7 @@ export default class Canvas extends Component {
           <div className="item-img-active-wrap item-tag-guide" style={{height: this.state.h}}>
             <div className="cbp-l-caption-alignCenter">
               <div className="item-img-active-body">
-                <div className="cbp-l-grid-agency-title">点击图片中感兴趣的地方</div>
+                <div className="cbp-l-grid-agency-title">点击图片中有趣的地方</div>
               </div>
             </div>
           </div>
