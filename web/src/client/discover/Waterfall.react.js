@@ -35,13 +35,13 @@ let masonryOptions = {
 export default class Waterfall extends Component {
 
   componentDidMount() {
-    this.props.actions.getDiscoverItems(this.props.offset, 30);
+    this.props.actions.getDiscoverPois(this.props.offset, 30);
   }
 
   render() {
-    const {actions, items, offset} = this.props;
+    const {actions, pois, offset} = this.props;
 
-    var childElements = items.map(function(item){
+    var childElements = pois.map(function(item){
       var sourceIcon = "fa ";
       var sourceType = "";
       if (item.src_type == "Movie") {

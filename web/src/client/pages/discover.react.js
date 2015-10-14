@@ -21,7 +21,7 @@ export default class Discover extends Component {
   }
 
   render() {
-    const {actions, discover: {items, offset}, msg: {discover: msg}} = this.props;
+    const {actions, discover: {pois, offset}, msg: {discover: msg}} = this.props;
     const scripts = `
       <script type="text/javascript" src="/ui/unify-s/js/plugins/masterslider.theme.stf.js"></script>
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
@@ -77,7 +77,7 @@ export default class Discover extends Component {
             {/*=== End Breadcrumbs ===*/}
             {/*=== Content Part ===*/}
             <div className="frame-items-waterfall">
-              <Waterfall {...{actions, items, offset}}/>
+              <Waterfall {...{actions, pois, offset}}/>
             </div>
           </div>
         </DynamicScripts>

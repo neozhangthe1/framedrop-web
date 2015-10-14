@@ -9,16 +9,16 @@ import DynamicScripts from '../../server/lib/dynamicscript.js'
 import Header from '../app/header.react.js';
 import Answer from '../poi/answer.react.js';
 
-export default class POI extends Component {
+export default class Poi extends Component {
 
   static propTypes = {
     actions: PropTypes.object,
     msg: PropTypes.object,
-    item: PropTypes.object
+    poi: PropTypes.object
   }
 
   componentDidMount() {
-    this.props.actions.getItem(this.props.params.id);
+    this.props.actions.getPoi(this.props.params.id);
     this.props.actions.getAnswers(this.props.params.id);
     jQuery(document).ready(function() {
       App.init();
@@ -26,7 +26,7 @@ export default class POI extends Component {
   }
 
   render() {
-    const {actions, msg: {item: msg}, item: {item, answers}} = this.props;
+    const {actions, poi: {poi, answers}} = this.props;
 
     const scripts = `
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
@@ -62,7 +62,7 @@ export default class POI extends Component {
                //</div>*/}
               <div className="row transitionfx">
                 <div className="col-lg-8">
-                  {(item.img) ? <ItemPhoto item={item} actions={actions} /> : null}
+                  {(poi.img) ? <ItemPhoto poi={poi} actions={actions} /> : null}
                   {
                     answers.map(function (answer) {
                       return <Answer data={answer} key={answer.id}/>;

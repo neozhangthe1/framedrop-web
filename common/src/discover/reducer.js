@@ -2,18 +2,18 @@
  * Created by yutao on 15/10/5.
  */
 import * as actions from "./actions.js"
-import Item from "../item/item.js"
+import Poi from "../poi/poi.js"
 import {List, Range, Record} from 'immutable';
 import reqwest from "reqwest";
 
 const InitialState = Record({
-  items: List(),
+  pois: List(),
   offset: 0
 });
 const initialState = new InitialState;
 
-const revive = ({items, offset}) => initialState.merge({
-    items: items.map(item => new Item(item)),
+const revive = ({pois, offset}) => initialState.merge({
+    pois: pois.map(item => new Poi(item)),
     offset: offset
 });
 
@@ -22,15 +22,15 @@ export default function discoverReducer(state = initialState, action = null) {
 
   switch (action.type) {
 
-    case actions.GET_ITEM: {
+    case actions.GET_POI: {
       return state
     }
 
-    case actions.GET_DISCOVER_ITEMS_SUCCESS: {
-      const newItems = action.payload.map(d => Item(d));
+    case actions.GET_DISCOVER_POIS_SUCCESS: {
+      const newItems = action.payload.map(d => Poi(d));
       return state
         .set("offset", d => d + newItems.length)
-        .update("items", d => d.concat(newItems));
+        .update("pois", d => d.concat(newItems));
     }
 
   }

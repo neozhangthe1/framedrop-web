@@ -2,31 +2,31 @@
  * Created by yutao on 15/10/5.
  */
 import * as actions from "./actions.js"
-import Item from "./item.js"
+import Poi from "./poi.js"
 import Answer from "./answer.js"
 import {List, Range, Record} from 'immutable';
 import reqwest from "reqwest";
 
 const InitialState = Record({
-  item: new Item,
+  poi: new Poi,
   answers: List()
 });
 const initialState = new InitialState;
 
-const revive = ({item, answers}) => initialState.merge({
-    item: item,
+const revive = ({poi, answers}) => initialState.merge({
+    poi: poi,
     answers: answers.map(answer => new Answer(answer))
 });
 
 
-export default function itemReducer(state = initialState, action = null) {
+export default function poiReducer(state = initialState, action = null) {
   if (!(state instanceof InitialState)) return revive(state);
 
   switch (action.type) {
 
-    case actions.GET_ITEM: return state;
-    case actions.GET_ITEM_SUCCESS: {
-      return state.set("item", Item(action.payload))
+    case actions.GET_POI: return state;
+    case actions.GET_POI_SUCCESS: {
+      return state.set("poi", Poi(action.payload))
     }
 
     case actions.GET_ANSWERS: return state;

@@ -3,21 +3,21 @@
  */
 import * as api from '../api.js'
 
-export const GET_ITEM = "GET_ITEM";
-export const GET_ITEM_SUCCESS = "GET_ITEM_SUCCESS";
-export const GET_ITEM_ERROR = "GET_ITEM_ERROR";
+export const GET_POI = "GET_POI";
+export const GET_POI_SUCCESS = "GET_POI_SUCCESS";
+export const GET_POI_ERROR = "GET_POI_ERROR";
 export const GET_ANSWERS = "GET_ANSWERS";
 export const GET_ANSWER_SUCCESS = "GET_ANSWER_SUCCESS";
 export const GET_ANSWER_ERROR = "GET_ANSWER_ERROR";
 
-const NUM_DISCOVER_ITEMS = 30;
+const NUM_DISCOVER_POIS = 30;
 
-export function getItem(id) {
+export function getPoi(id) {
   return ({fetch}) => ({
     types: [
-      GET_ITEM,
-      GET_ITEM_SUCCESS,
-      GET_ITEM_ERROR
+      GET_POI,
+      GET_POI_SUCCESS,
+      GET_POI_ERROR
     ],
     payload: {
       promise: api.get(fetch, 'item/' + id)

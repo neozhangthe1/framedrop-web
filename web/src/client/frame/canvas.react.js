@@ -6,6 +6,7 @@ import Component from 'react-pure-render/component';
 import React, {PropTypes} from 'react';
 import ReactDom from 'react-dom';
 import classNames from 'classnames'
+import {List, Range, Record} from 'immutable';
 
 var getPosition = (element) => {
   var xPosition = 0;
@@ -28,7 +29,7 @@ export default class Canvas extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {w: 0, h: 0, wrapW: 0, wrapH: 0, tagging: false, points: []};
+    this.state = {w: 0, h: 0, wrapW: 0, wrapH: 0, tagging: false, points: List()};
     this.addTag = this.addTag.bind(this);
   }
 
@@ -52,10 +53,10 @@ export default class Canvas extends Component {
   addTag(e) {
     if (e.button !== 0) return;
     var parentPosition = getPosition(e.relatedTarget);
-    var x = e.nativeEvent.offsetX;
-    var y = e.nativeEvent.offsetY;
+    var x = e.nativeEvent.offsetX / this.state.w;
+    var y = e.nativeEvent.offsetY / this.state.h;
     this.setState({x: x, y: y, tagging: true});
-    this.setState("points", this.state.points.push({x: x, y: y}));
+    this.setState({points: this.state.points.concat([{x: x, y: y}])});
     console.log(this.state)
   }
 
@@ -76,7 +77,7 @@ export default class Canvas extends Component {
     });
 
     var pointsElem = this.state.points.map((p, i) => {
-      return <aside className="annotation comment-group separator-between-all-comments open" key={i} style={{top: p.y - 12, left: p.x - 12}}>
+      return <aside className="annotation comment-group separator-between-all-comments open" key={i} style={{top: p.y * this.state.h - 12, left: p.x * this.state.w - 12}}>
         <i className="marker">
           <i className="marker-inner" style={{background:'#0b9ed4'}}></i>
         </i>

@@ -6,6 +6,7 @@ import Component from 'react-pure-render/component';
 import React, {PropTypes} from 'react';
 import classNames from 'classnames'
 import ReactDom from 'react-dom';
+import {List, Range, Record} from 'immutable';
 
 export default class ItemPhoto extends Component {
 
@@ -14,12 +15,13 @@ export default class ItemPhoto extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {w: 0, h: 0, wrapW: 0, wrapH: 0, tagging: false, points: []};
+    this.state = {w: 0, h: 0, wrapW: 0, wrapH: 0, tagging: false,
+      points: [{x: this.props.poi.x, y: this.props.poi.y, type: 0}]};
   }
 
   componentDidMount() {
-    var wrapW, w = this.props.item.width;
-    var wrapH, h = this.props.item.height;
+    var wrapW, w = this.props.poi.width;
+    var wrapH, h = this.props.poi.height;
 
     if (w > ReactDom.findDOMNode(this.refs.wrap).offsetWidth) {
       h = ReactDom.findDOMNode(this.refs.wrap).offsetWidth / w * h;
@@ -31,24 +33,31 @@ export default class ItemPhoto extends Component {
     }
 
     this.setState({w: w, h: h, wrapW: wrapW, wrapH: wrapH});
-    console.log(this.state)
   }
 
   render() {
-    const {item} = this.props;
+    const {poi} = this.props;
 
     var icon = "";
     var url = "";
-    if (item.src_type == "Movie") {
+    if (poi.src_type == "Movie") {
       icon = "fa fa-film";
-      url = "/movie/" + item.src_id;
-    } else if (item.src_type == "Tv") {
+      url = "/movie/" + poi.src_id;
+    } else if (poi.src_type == "Tv") {
       icon = "fa fa-tv";
-      url = "/tv/" + item.src_id;
+      url = "/tv/" + poi.src_id;
     }
     {/*var commentList = this.state.comments.map(function(c) {
       return <Comment key={c.id} data={c} />
     });*/}
+
+    var poiElem = this.state.points.map((p, i) => {
+      return <aside className="annotation comment-group separator-between-all-comments open" key={i} style={{top: p.y * this.state.h - 12, left: p.x * this.state.w - 12}}>
+        <i className="marker">
+          <i className="marker-inner" style={{background:'#0b9ed4'}}></i>
+        </i>
+      </aside>
+    });
 
     return (
       <div className="col-lg-12 no-padding item-info-wrap canvas-wrap" ref="wrap">
@@ -66,7 +75,7 @@ export default class ItemPhoto extends Component {
                data-placement="left">
               <i className="glyphicon glyphicon-heart"/>
             </a>
-            <a className="btn btn-default" href={"/frame/" + item.fid}>返回帧</a>
+            <a className="btn btn-default" href={"/frame/" + poi.fid}>返回帧</a>
           </div>
         </div>
         {/* left column */}
@@ -75,10 +84,10 @@ export default class ItemPhoto extends Component {
           <div className={classNames("image-container")} id="main-image-wrap" style={{height: this.state.wrapH}} >
 
             <div className="item-img-wrap">
-              <img src={item.img} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img" style={{width: this.state.w, height: this.state.h}}/>
+              <img src={poi.img} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img" style={{width: this.state.w, height: this.state.h}}/>
             </div>
             <div className="points-wrap" style={{height: this.state.wrapH, width: "100%"}}>
-              {/*pointsElem*/}
+              {poiElem}
             </div>
           </div>
 
@@ -86,7 +95,7 @@ export default class ItemPhoto extends Component {
         {/*/ left column end */}
         <div className="col-sm-12 tag-zone">
           <a href={url} className="source">
-            <small><i className={icon}/> {item.src_title_cn} </small>
+            <small><i className={icon}/> {poi.src_title_cn} </small>
           </a>
         </div>
 

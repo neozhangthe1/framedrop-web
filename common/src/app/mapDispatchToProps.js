@@ -4,14 +4,14 @@ import {Map} from 'immutable';
 import {bindActionCreators} from 'redux';
 
 import * as discoverActions from '../discover/actions.js';
-import * as itemActions from '../item/actions.js';
+import * as poiActions from '../poi/actions.js';
 import * as frameActions from '../frame/actions.js';
 
 const actions = [
   authActions,
   todosActions,
   discoverActions,
-  itemActions,
+  poiActions,
   frameActions
 ];
 

@@ -2,7 +2,7 @@
   "name": "framedrop-native",
   "version": "1.0.0-rc",
   "private": true,
-  "author": "Mike Grabowski <grabbou@gmail.com>",
+  "author": "Yutao Zhang <stack@live.cn>",
   "jest": {
     "scriptPreprocessor": "./src/lib/jestSupport/scriptPreprocessor.js",
     "setupEnvScriptFile": "./src/lib/jestSupport/env.js",

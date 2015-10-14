@@ -3,9 +3,11 @@
  */
 import {Record} from 'immutable';
 
-const Item = Record({
+const Poi = Record({
   id: 0,
   name: '',
+  x: 0,
+  y: 0,
   img: '',
   width: 0,
   height: 0,
@@ -23,4 +25,4 @@ const Item = Record({
   num_comments: 0
 });
 
-export default Item;
+export default Poi;
