@@ -42,7 +42,7 @@ export default {
   },
   home: {
     infoHtml: `<a href="https://github.com/este/este">Este.js</a> dev stack.`,
-    title: 'Este.js App',
+    title: '丢帧',
     toCheck: {
       andMuchMore: '... and much more.',
       header: 'Things to Check',
@@ -82,7 +82,10 @@ export default {
     title: 'Todos'
   },
   discover: {
-    title: 'Discover'
+    title: '发现'
+  },
+  login: {
+    titile: '用户登陆'
   }
 
 };

@@ -24,7 +24,6 @@ export default class App extends Component {
     return (
       <div className="page">
         {React.cloneElement(this.props.children, this.props)}
-        <Footer msg={msg.app.footer} />
       </div>
     );
   }

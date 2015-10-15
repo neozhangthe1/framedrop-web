@@ -7,7 +7,7 @@ const InitialState = Record({
 });
 const initialState = new InitialState;
 
-export default function authReducer(state = initialState, action) {
+export default function authReducer(state = initialState, action = null) {
   if (!(state instanceof InitialState)) return initialState.mergeDeep(state);
 
   switch (action.type) {
@@ -20,7 +20,14 @@ export default function authReducer(state = initialState, action) {
     case actions.LOGIN:
       return state.setIn(['form', 'disabled'], true);
 
-    case actions.LOGIN_SUCCESS:
+    case actions.LOGIN_SUCCESS: {
+      if(action.payload.token){
+        localStorage.setItem('jwt', action.payload.token);
+        localStorage.setItem('username', action.payload.username);
+        localStorage.setItem('avatar', action.payload.avatar);
+      }
+    }
+
     case actions.LOGIN_ERROR: {
       const error = action.type === actions.LOGIN_ERROR ? action.payload : null;
       return state

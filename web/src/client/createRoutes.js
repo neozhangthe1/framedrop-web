@@ -1,7 +1,7 @@
 import App from './app/app.react';
 import Home from './pages/home.react';
-import Login from './pages/auth.react';
 import Me from './pages/me.react';
+import Login from './pages/login.react.js';
 import NotFound from './pages/notFound.react';
 import React from 'react';
 import {IndexRoute, Route} from 'react-router';
@@ -27,6 +27,7 @@ export default function createRoutes(getState) {
       <Route component={Discover} path="discover" />
       <Route component={Poi} path="poi/:id" />
       <Route component={Frame} path="frame/:id" />
+      <Route component={Login} path="login" />
       <Route component={NotFound} path="*" />
     </Route>
   );
