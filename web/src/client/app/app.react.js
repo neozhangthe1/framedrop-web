@@ -15,6 +15,10 @@ export default class App extends Component {
     users: PropTypes.object.isRequired
   }
 
+  componentDidMount() {
+    this.props.actions.getUserInfo();
+  }
+
   render() {
 
     // Use location pathname to ensure header is rerendered on url change, so

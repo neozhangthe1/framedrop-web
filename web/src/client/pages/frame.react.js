@@ -25,7 +25,7 @@ export default class Frame extends Component {
   }
 
   render() {
-    const {actions, msg: {item: msg}, frame: {frame}} = this.props;
+    const {actions, msg: {item: msg}, frame: {frame}, users: {viewer}} = this.props;
 
     const scripts = `
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
@@ -55,7 +55,7 @@ export default class Frame extends Component {
         <DynamicScripts scripts={scripts}>
           <div className="wrapper header-fixed header-fixed-space">
             <div className="header-v6 header-classic-white header-sticky">
-              <Header tab={""}/>
+              <Header tab={""} {...{viewer}} />
             </div>
             <div className="container main-container headerOffset">
               {/*<div className="row">

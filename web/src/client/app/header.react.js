@@ -65,17 +65,19 @@ export default class Header extends Component {
   render() {
     const {msg, viewer, tab} = this.props;
 
-    var loginBtn = <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red login-btn" href="/login">
-      <i className="icon-bulb" style={{"marginRight": 0}}> </i>
-      登陆
-    </a>;
+    var elem = "";
+    if (viewer)
+      if (viewer.username.length > 0) {
+        elem = <a className="user-nav">
+          <img src={viewer.avatar} className="rounded-x" width="40" height="40" />
+        </a>;
+      } else {
+        elem = <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red login-btn" href="/login">
+          <i className="icon-bulb" style={{"marginRight": 0}}> </i>
+          登陆
+        </a>;
+      }
 
-    var userNav = <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red login-btn" href="/login">
-      <i className="icon-bulb" style={{"marginRight": 0}}> </i>
-      {viewer}
-    </a>;
-
-    console.log(this.props)
 
     return (
       <div>
@@ -110,8 +112,8 @@ export default class Header extends Component {
                 </ul>
               </div>
                */}
-              <div className="header-inner-right">
-                {viewer ? userNav : loginBtn}
+              <div className="header-inner-right user-nav-wrap">
+                {elem}
               </div>
             </div>
             {/* Collect the nav links, forms, and other content for toggling */}

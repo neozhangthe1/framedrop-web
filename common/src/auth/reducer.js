@@ -15,6 +15,7 @@ export default function authReducer(state = initialState, action = null) {
     case actions.SET_FORM_FIELD: {
       //const {name, value} = action.payload;
       //return state.setIn(['form', 'fields', name], value);
+      return state;
     }
 
     case actions.LOGIN:
@@ -26,6 +27,8 @@ export default function authReducer(state = initialState, action = null) {
         localStorage.setItem('username', action.payload.username);
         localStorage.setItem('avatar', action.payload.avatar);
         return state.set("login", true);
+      } else {
+        return state;
       }
     }
 
@@ -34,7 +37,9 @@ export default function authReducer(state = initialState, action = null) {
       //return state
       //  .setIn(['form', 'disabled'], false)
       //  .setIn(['form', 'error'], error);
+      return state;
     }
+
 
   }
 

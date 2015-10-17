@@ -26,7 +26,7 @@ export default class Poi extends Component {
   }
 
   render() {
-    const {actions, poi: {poi, answers}} = this.props;
+    const {actions, poi: {poi, answers}, users: {viewer}} = this.props;
 
     const scripts = `
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
@@ -53,7 +53,7 @@ export default class Poi extends Component {
         <DynamicScripts scripts={scripts}>
           <div className="wrapper header-fixed header-fixed-space">
             <div className="header-v6 header-classic-white header-sticky">
-              <Header tab={"product"}/>
+              <Header tab={"product"} {...{viewer}} />
             </div>
 
             <div className="container main-container headerOffset">

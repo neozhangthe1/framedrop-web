@@ -21,7 +21,7 @@ export default class Discover extends Component {
   }
 
   render() {
-    const {actions, discover: {pois, offset}, msg: {discover: msg}, viewer} = this.props;
+    const {actions, discover: {pois, offset}, msg: {discover: msg}, users: {viewer}} = this.props;
     const scripts = `
       <script type="text/javascript" src="/ui/unify-s/js/plugins/masterslider.theme.stf.js"></script>
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
@@ -48,7 +48,7 @@ export default class Discover extends Component {
         <DynamicScripts scripts={scripts}>
           <div className="wrapper header-fixed header-fixed-space discover">
             <div className="header-v6 header-classic-white header-sticky">
-              <Header tab={"discover"}/>
+              <Header tab={"discover"} {...{viewer}} />
             </div>
 
             <div className="guide-slider-wrap">

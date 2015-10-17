@@ -24,6 +24,20 @@ export default function usersReducer(state = initialState, action = null) {
       return state.set('viewer', new User({username, avatar}));
     }
 
+    case authActions.GET_USER_INFO_SUCCESS: {
+      console.log(action.payload)
+      if (action.payload.status > 0) {
+        const {username, avatar} = action.payload;
+        return state.set('viewer', new User({username, avatar}));
+      } else {
+        return state.set('viewer', new User());
+      }
+    }
+
+    case authActions.GET_USER_INFO_ERROR: {
+      return state.set('viewer', new User());
+    }
+
   }
 
   return state;
