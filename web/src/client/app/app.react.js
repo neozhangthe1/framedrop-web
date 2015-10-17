@@ -2,7 +2,7 @@ import './app.styl';
 import Component from 'react-pure-render/component';
 import Footer from './footer.react';
 import React, {PropTypes} from 'react';
-import {mapDispatchToProps, mapStateToProps} from '@framedrop/common';
+import {mapDispatchToProps, mapStateToProps} from '../../../../common';
 import {connect} from 'react-redux';
 
 @connect(mapStateToProps, mapDispatchToProps)
