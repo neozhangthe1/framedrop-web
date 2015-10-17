@@ -1,0 +1,194 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?ubmwot');
+	src:url('fonts/icomoon.eot?ubmwot#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?ubmwot') format('truetype'),
+		url('fonts/icomoon.woff?ubmwot') format('woff'),
+		url('fonts/icomoon.svg?ubmwot#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-device-camera:before {
+	content: "\f056";
+}
+.icon-device-desktop:before {
+	content: "\f27c";
+}
+.icon-device-mobile:before {
+	content: "\f038";
+}
+.icon-home:before {
+	content: "\f08d";
+}
+.icon-package:before {
+	content: "\f0c4";
+}
+.icon-gift:before {
+	content: "\e802";
+}
+.icon-glass:before {
+	content: "\e803";
+}
+.icon-spoon-knife:before {
+	content: "\e804";
+}
+.icon-heart:before {
+	content: "\e800";
+}
+.icon-cloud:before {
+	content: "\e801";
+}
+.icon-star:before {
+	content: "\e80a";
+}
+.icon-tv:before {
+	content: "\e805";
+}
+.icon-sound:before {
+	content: "\e80b";
+}
+.icon-video:before {
+	content: "\e80c";
+}
+.icon-trash:before {
+	content: "\e80d";
+}
+.icon-user:before {
+	content: "\e80e";
+}
+.icon-key:before {
+	content: "\e80f";
+}
+.icon-search:before {
+	content: "\e810";
+}
+.icon-settings:before {
+	content: "\e811";
+}
+.icon-camera:before {
+	content: "\e812";
+}
+.icon-tag:before {
+	content: "\e813";
+}
+.icon-lock:before {
+	content: "\e814";
+}
+.icon-bulb:before {
+	content: "\e815";
+}
+.icon-pen:before {
+	content: "\e816";
+}
+.icon-diamond:before {
+	content: "\e817";
+}
+.icon-display:before {
+	content: "\e818";
+}
+.icon-location:before {
+	content: "\e806";
+}
+.icon-eye:before {
+	content: "\e819";
+}
+.icon-bubble:before {
+	content: "\e81a";
+}
+.icon-stack:before {
+	content: "\e81b";
+}
+.icon-cup:before {
+	content: "\e81c";
+}
+.icon-phone:before {
+	content: "\e81d";
+}
+.icon-news:before {
+	content: "\e81e";
+}
+.icon-mail:before {
+	content: "\e81f";
+}
+.icon-like:before {
+	content: "\e820";
+}
+.icon-photo:before {
+	content: "\e821";
+}
+.icon-note:before {
+	content: "\e822";
+}
+.icon-clock:before {
+	content: "\e823";
+}
+.icon-paperplane:before {
+	content: "\e824";
+}
+.icon-params:before {
+	content: "\e825";
+}
+.icon-banknote:before {
+	content: "\e826";
+}
+.icon-data:before {
+	content: "\e827";
+}
+.icon-music:before {
+	content: "\e828";
+}
+.icon-megaphone:before {
+	content: "\e829";
+}
+.icon-study:before {
+	content: "\e82a";
+}
+.icon-lab:before {
+	content: "\e82b";
+}
+.icon-food2:before {
+	content: "\e807";
+}
+.icon-t-shirt:before {
+	content: "\e808";
+}
+.icon-fire:before {
+	content: "\e82c";
+}
+.icon-clip:before {
+	content: "\e82d";
+}
+.icon-shop:before {
+	content: "\e809";
+}
+.icon-calendar:before {
+	content: "\e82e";
+}
+.icon-wallet:before {
+	content: "\e82f";
+}
+.icon-vynil:before {
+	content: "\e830";
+}
+.icon-truck:before {
+	content: "\e831";
+}
+.icon-world:before {
+	content: "\e832";
+}
+

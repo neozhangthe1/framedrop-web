@@ -1,4 +1,4 @@
-import {ValidationError} from '@este/common';
+import {ValidationError} from '@framedrop/common';
 import ReactDOM from 'react-dom';
 
 export default function focusInvalidField(component, error) {

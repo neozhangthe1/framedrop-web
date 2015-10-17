@@ -1,9 +1,9 @@
 import Promise from 'bluebird';
-import Todo from '@este/common/src/todos/todo';
+import Todo from '@framedrop/common/src/todos/todo';
 import initialState from '../initialState';
-import {configureStore} from '@este/common';
+import {configureStore} from '@framedrop/common';
 import {fromJS} from 'immutable';
-import {mapDispatchToProps} from '@este/common';
+import {mapDispatchToProps} from '@framedrop/common';
 
 export default function createStore(req) {
   return new Promise((resolve, reject) => {

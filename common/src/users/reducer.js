@@ -14,14 +14,14 @@ function revive({viewer}) {
   });
 }
 
-export default function usersReducer(state = initialState, action) {
+export default function usersReducer(state = initialState, action = null) {
   if (!(state instanceof InitialState)) return revive(state);
 
   switch (action.type) {
 
     case authActions.LOGIN_SUCCESS: {
-      const {email} = action.payload;
-      return state.set('viewer', new User({email}));
+      const {username, avatar} = action.payload;
+      return state.set('viewer', new User({username, avatar}));
     }
 
   }

@@ -1,5 +1,5 @@
 {
-  "name": "framedrop-common",
+  "name": "@framedrop/common",
   "description": "Common logic used across Este universe",
   "author": "Daniel Steigerwald",
   "contributors": [

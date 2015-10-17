@@ -17,7 +17,7 @@ export default class Home extends Component {
 
   render() {
 
-    const {msg: {home: msg}} = this.props;
+    const {msg: {home: msg}, users: {viewer}} = this.props;
     const scripts = `
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
       <script>
@@ -32,12 +32,14 @@ export default class Home extends Component {
       </script>
     `;
 
+    console.log(this.props)
+
     return (
       <DocumentTitle title={msg.title}>
         <DynamicScripts scripts={scripts}>
           <div className="wrapper header-fixed">
             <div className="header-v6 header-white-transparent header-sticky">
-              <Header tab={"home"} />
+              <Header tab={"home"} {...{viewer}} />
             </div>
             <div className="ms-layers-template home-slider">
               {/* masterslider */}

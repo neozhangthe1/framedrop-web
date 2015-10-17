@@ -2,6 +2,57 @@ import Component from 'react-pure-render/component';
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
+class DiscoverNav extends Component {
+  render() {
+    return (
+      <div className="secondary-nav">
+        <div className="container container-space">
+          <div className="menu-container row">
+            <ul className="nav navbar-nav col-md-6  pull-left">
+              <li className={"nav-item " + ((this.props.tab === "product") ? "active" : "")}>
+                <a href="/product">
+                  <i className="icon-package"> </i>
+                  东西
+                </a>
+              </li>
+              <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
+                <a href="/fashion">
+                  <i className="icon-t-shirt"> </i>
+                  穿搭
+                </a>
+              </li>
+              <li className={"nav-item " + ((this.props.tab === "food") ? "active" : "")}>
+                <a href="/food">
+                  <i className="icon-food"> </i>
+                  美食
+                </a>
+              </li>
+              <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
+                <a href="/fashion">
+                  <i className="icon-shop"> </i>
+                  家居
+                </a>
+              </li>
+              <li className={"nav-item " + ((this.props.tab === "location") ? "active" : "")}>
+                <a href="/location">
+                  <i className="icon-location"> </i>
+                  地点
+                </a>
+              </li>
+              {/*<li className={(this.props.tab === "queue") ? "active" : ""}>
+               <a href="/queue">
+               队列
+               </a>
+               </li>*/}
+            </ul>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+
 export default class Header extends Component {
 
   static propTypes = {
@@ -14,49 +65,17 @@ export default class Header extends Component {
   render() {
     const {msg, viewer, tab} = this.props;
 
-    var discoverNav = <div className="secondary-nav">
-      <div className="container container-space">
-        <div className="menu-container row">
-          <ul className="nav navbar-nav col-md-6  pull-left">
-            <li className={"nav-item " + ((this.props.tab === "product") ? "active" : "")}>
-              <a href="/product">
-                <i className="icon-package"> </i>
-                东西
-              </a>
-            </li>
-            <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
-              <a href="/fashion">
-                <i className="icon-t-shirt"> </i>
-                穿搭
-              </a>
-            </li>
-            <li className={"nav-item " + ((this.props.tab === "food") ? "active" : "")}>
-              <a href="/food">
-                <i className="icon-food2"> </i>
-                美食
-              </a>
-            </li>
-            <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
-              <a href="/fashion">
-                <i className="icon-shop"> </i>
-                家居
-              </a>
-            </li>
-            <li className={"nav-item " + ((this.props.tab === "location") ? "active" : "")}>
-              <a href="/location">
-                <i className="icon-location"> </i>
-                地点
-              </a>
-            </li>
-            {/*<li className={(this.props.tab === "queue") ? "active" : ""}>
-             <a href="/queue">
-             队列
-             </a>
-             </li>*/}
-          </ul>
-        </div>
-      </div>
-    </div>
+    var loginBtn = <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red login-btn" href="/login">
+      <i className="icon-bulb" style={{"marginRight": 0}}> </i>
+      登陆
+    </a>;
+
+    var userNav = <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red login-btn" href="/login">
+      <i className="icon-bulb" style={{"marginRight": 0}}> </i>
+      {viewer}
+    </a>;
+
+    console.log(this.props)
 
     return (
       <div>
@@ -78,7 +97,7 @@ export default class Header extends Component {
                 </a>
               </div>
               {/* ENd Navbar Brand */}
-              {/* Header Inner Right */}
+              {/*
               <div className="header-inner-right">
                 <ul className="menu-icons-list">
                   <li className="menu-icons">
@@ -90,7 +109,10 @@ export default class Header extends Component {
                   </li>
                 </ul>
               </div>
-              {/* End Header Inner Right */}
+               */}
+              <div className="header-inner-right">
+                {viewer ? userNav : loginBtn}
+              </div>
             </div>
             {/* Collect the nav links, forms, and other content for toggling */}
             <div className="collapse navbar-collapse navbar-responsive-collapse">
@@ -122,7 +144,7 @@ export default class Header extends Component {
           </div>
         </div>
 
-        {(this.props.tab === "discover") ? discoverNav : null}
+        {(this.props.tab != "discover") ?  "" : <DiscoverNav/> }
       </div>
     );
   }

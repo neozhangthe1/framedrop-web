@@ -18,7 +18,7 @@
   },
   "version": "1.0.0-rc1",
   "dependencies": {
-    "@este/common": "1.0.0-rc1",
+    "@framedrop/common": "1.0.0-rc1",
     "autoprefixer": "^6.0.2",
     "babel": "^5.0.8",
     "babel-core": "^5.0.8",

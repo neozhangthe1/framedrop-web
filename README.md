@@ -15,7 +15,7 @@
 
 Este universe is organized into several folders, each of them contains its own package.json.
 
-#### @este/universal
+#### @framedrop/universal
 
 This is umbrella package to help you working with different targets.
 You should not install any dependencies here. The only dependencies that are included in that
@@ -24,17 +24,17 @@ package are eslint and its parsers so it's easier to work with Atom/SublimeText.
 This package contains several scripts that are here to help you with development, but since they are just wrappers
 to the underlaying `web/` and `native/` tasks, it's not required to use them. See Dev and CI tasks section.
 
-#### @este/common
+#### @framedrop/common
 
 Este common is a package that contains Flux (Redux) implementation, actions, reducers and universal logic that works
 across all targets. You should not install any React-specific or target-specific dependencies here to make this
 package fully cross-platform.
 
-#### @este/web
+#### @framedrop/web
 
 This package contains previous Este/web and comes with both client and server.
 
-#### @este/native
+#### @framedrop/native
 
 This package contains previous Este/native and comes with React Native iOS & Android implementations.
 

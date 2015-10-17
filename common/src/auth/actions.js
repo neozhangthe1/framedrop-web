@@ -24,7 +24,7 @@ export function setFormField({target: {name, value}}) {
 }
 
 export function login(email, password) {
-  return ({fetch, validate}) => ({
+  return ({fetch}) => ({
     types: [
       LOGIN,
       LOGIN_SUCCESS,
@@ -36,5 +36,6 @@ export function login(email, password) {
         password: password
       })
     }
+
   });
 }
