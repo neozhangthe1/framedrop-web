@@ -87,7 +87,7 @@ export default class Canvas extends Component {
 
     return (
       <div className="col-lg-12 no-padding item-info-wrap canvas-wrap" ref="wrap">
-        {/* left column */}
+
         <div className={classNames("image-container", {tagging: this.state.tagging})} id="main-image-wrap"
              style={{height: this.state.wrapH}} onClick={this.addTag}>
 

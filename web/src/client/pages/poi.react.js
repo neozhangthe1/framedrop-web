@@ -8,6 +8,7 @@ import ItemPhoto from '../poi/itemPhoto.react.js';
 import DynamicScripts from '../../server/lib/dynamicscript.js'
 import Header from '../app/header.react.js';
 import Answer from '../poi/answer.react.js';
+import './poi.styl';
 
 export default class Poi extends Component {
 

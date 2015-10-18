@@ -64,18 +64,20 @@ export default class ItemPhoto extends Component {
         <div className="col-lg-12 no-padding item-header">
           <div className="author-box">
             <a className="author-avatar-link" href="http://dongxi.douban.com/people/Sprinna/">
-              <img width="40" height="40" src="http://img3.douban.com/icon/u1660629-24.jpg" alt="苦艾" title="苦艾"/>
+              <img className="rounded-x"  width="30" height="30" src="http://img3.douban.com/icon/u1660629-24.jpg" alt="苦艾" title="苦艾"/>
             </a>
             <a href="http://dongxi.douban.com/people/Sprinna/">心水机器人</a>&nbsp;标记
-            <a className="add-pin tooltipHere" data-toggle="tooltip" data-original-title="标记"
-               data-placement="left">
-              <i className="glyphicon glyphicon-pushpin"/>
-            </a>
-            <a className="add-fav tooltipHere" data-toggle="tooltip" data-original-title="喜欢"
-               data-placement="left">
-              <i className="glyphicon glyphicon-heart"/>
-            </a>
-            <a className="btn btn-default" href={"/frame/" + poi.fid}>返回帧</a>
+
+            <div className="author-header-right pull-right">
+              <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red item-header-btn" href={"/frame/" + poi.fid}>
+                <i className="icon-heart" style={{"marginRight": 0}}> </i>
+                喜欢
+              </a>
+              <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red item-header-btn" href={"/frame/" + poi.fid}>
+                <i className="icon-photo" style={{"marginRight": 0}}> </i>
+                返回图片
+              </a>
+            </div>
           </div>
         </div>
         {/* left column */}

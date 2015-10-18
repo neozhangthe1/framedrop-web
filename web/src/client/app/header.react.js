@@ -80,7 +80,7 @@ export default class Header extends Component {
 
 
     return (
-      <div>
+      <div className="main-header">
         <div className="navbar mega-menu" role="navigation">
           <div className="container container-space">
             {/* Brand and toggle get grouped for better mobile display */}
