@@ -72,7 +72,7 @@ export default class Header extends Component {
           <img src={viewer.avatar} className="rounded-x" width="40" height="40" />
         </a>;
       } else {
-        elem = <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red login-btn" href="/login">
+        elem = <a className="btn-u btn-brd btn-brd-hover btn-u-xs btn-u-red login-btn" href="/login">
           <i className="icon-bulb" style={{"marginRight": 0}}> </i>
           登陆
         </a>;

@@ -60,7 +60,7 @@ export default class ItemPhoto extends Component {
     });
 
     return (
-      <div className="col-lg-12 no-padding item-info-wrap canvas-wrap" ref="wrap">
+      <div className="col-lg-12 no-padding item-info-wrap" ref="wrap">
         <div className="col-lg-12 no-padding item-header">
           <div className="author-box">
             <a className="author-avatar-link" href="http://dongxi.douban.com/people/Sprinna/">
@@ -69,11 +69,11 @@ export default class ItemPhoto extends Component {
             <a href="http://dongxi.douban.com/people/Sprinna/">心水机器人</a>&nbsp;标记
 
             <div className="author-header-right pull-right">
-              <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red item-header-btn" href={"/frame/" + poi.fid}>
+              <a className="btn-u btn-brd btn-brd-hover btn-u-xs  btn-u-red item-header-btn" href={"/frame/" + poi.fid}>
                 <i className="icon-heart" style={{"marginRight": 0}}> </i>
                 喜欢
               </a>
-              <a className="btn-u btn-brd btn-brd-hover btn-u-xs rounded btn-u-red item-header-btn" href={"/frame/" + poi.fid}>
+              <a className="btn-u btn-brd btn-brd-hover btn-u-xs  btn-u-red item-header-btn" href={"/frame/" + poi.fid}>
                 <i className="icon-photo" style={{"marginRight": 0}}> </i>
                 返回图片
               </a>

@@ -72,9 +72,6 @@ export default class Canvas extends Component {
       icon = "fa fa-tv";
       url = "/tv/" + this.props.data.src_id;
     }
-    var commentList = [].map(function (c) {
-      return <Comment key={c.id} data={c}/>
-    });
 
     var pointsElem = this.state.points.map((p, i) => {
       return <aside className="annotation comment-group separator-between-all-comments open" key={i} style={{top: p.y * this.state.h - 12, left: p.x * this.state.w - 12}}>
@@ -100,7 +97,9 @@ export default class Canvas extends Component {
           <div className="item-img-active-wrap item-tag-guide" style={{height: this.state.h}}>
             <div className="cbp-l-caption-alignCenter">
               <div className="item-img-active-body">
-                <div className="cbp-l-grid-agency-title">点击图片中有趣的地方</div>
+                <div className="cbp-l-grid-agency-title">
+                  <i className="icon-pen"></i>点击图片中有趣的地方
+                </div>
               </div>
             </div>
           </div>
@@ -117,7 +116,7 @@ export default class Canvas extends Component {
                     <span>穿搭</span>
                   </li>
                   <li><a href="portfolio_single_item.html">
-                    <i className="rounded-x fa icon-food2"/></a>
+                    <i className="rounded-x fa icon-food"/></a>
                     <span>美食</span>
                   </li>
                   <li><a href="portfolio_single_item.html">
@@ -134,25 +133,14 @@ export default class Canvas extends Component {
           </div>
 
         </div>
-        {/*/ left column end */}
+        {/*/ left column end
         <div className="col-sm-12 tag-zone">
           <a href={url} className="source">
             <small><i className={icon}/> {this.props.data.src_title_cn} </small>
           </a>
-        </div>
+        </div>*/}
 
-        <div className="col-lg-12 col-md-12 col-sm-12 item-footer-wrap no-padding">
-          <div className="social-footer">
-            {commentList}
-            <div className="social-comment">
 
-              <div className="media-body">
-                <textarea className="form-control" placeholder="写下你的评论..." ref="comment"/>
-                <a className="btn btn-primary hidden comment-btn" onClick={this.comment}>回复</a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     );
   }
