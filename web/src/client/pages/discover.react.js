@@ -58,22 +58,22 @@ export default class Discover extends Component {
             <div className="guide-slider-wrap">
               <div className="container">
                 <div id="owl-demo" className="container owl-carousel owl-theme">
-                  <div className="item"><h3>1</h3></div>
-                  <div className="item"><h3>2</h3></div>
-                  <div className="item"><h3>3</h3></div>
-                  <div className="item"><h3>4</h3></div>
-                  <div className="item"><h3>5</h3></div>
-                  <div className="item"><h3>6</h3></div>
-                  <div className="item"><h3>7</h3></div>
-                  <div className="item"><h3>8</h3></div>
-                  <div className="item"><h3>9</h3></div>
-                  <div className="item"><h3>10</h3></div>
-                  <div className="item"><h3>11</h3></div>
-                  <div className="item"><h3>12</h3></div>
-                  <div className="item"><h3>13</h3></div>
-                  <div className="item"><h3>14</h3></div>
-                  <div className="item"><h3>15</h3></div>
-                  <div className="item"><h3>16</h3></div>
+                  <div className="item"><span>1</span></div>
+                  <div className="item"><span>2</span></div>
+                  <div className="item"><span>3</span></div>
+                  <div className="item"><span>4</span></div>
+                  <div className="item"><span>5</span></div>
+                  <div className="item"><span>6</span></div>
+                  <div className="item"><span>7</span></div>
+                  <div className="item"><span>8</span></div>
+                  <div className="item"><span>9</span></div>
+                  <div className="item"><span>10</span></div>
+                  <div className="item"><span>11</span></div>
+                  <div className="item"><span>12</span></div>
+                  <div className="item"><span>13</span></div>
+                  <div className="item"><span>14</span></div>
+                  <div className="item"><span>15</span></div>
+                  <div className="item"><span>16</span></div>
                 </div>
               </div>
             </div>

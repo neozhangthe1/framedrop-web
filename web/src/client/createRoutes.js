@@ -10,6 +10,7 @@ import Discover from './pages/discover.react.js';
 import Poi from './pages/poi.react.js';
 import Frame from './pages/frame.react.js';
 import Movie from './pages/movie.react.js';
+import Billboard from './pages/billboard.react.js';
 
 export default function createRoutes(getState) {
 
@@ -30,6 +31,7 @@ export default function createRoutes(getState) {
       <Route component={Frame} path="frame/:id" />
       <Route component={Login} path="login" />
       <Route component={Movie} path="movie/:id" />
+      <Route component={Billboard} path="billboard/:id" />
       <Route component={NotFound} path="*" />
     </Route>
   );

@@ -3,6 +3,7 @@
  */
 import './waterfall.styl';
 import Component from 'react-pure-render/component';
+import Badge from "../poi/badge.react.js";
 import React, {PropTypes} from 'react';
 
 var Masonry = require('react-masonry-component')(React);
@@ -65,6 +66,7 @@ export default class Waterfall extends Component {
 
       return (
         <div className="grid-boxes-in" key={item.id}>
+          <Badge type="fashion" />
           <a href={"/poi/" + item.id}>
             <img className="img-responsive item-photo" src={item.img} style={styles} alt />
           </a>
@@ -76,7 +78,7 @@ export default class Waterfall extends Component {
               <a className="author-avatar-link" href="http://dongxi.douban.com/people/Sprinna/">
                 <img width="24" height="24" src="http://img3.douban.com/icon/u1660629-24.jpg" alt="苦艾" title="苦艾"/>
               </a>
-              <small><a href="http://dongxi.douban.com/people/Sprinna/">心水机器人</a>&nbsp;发布</small>
+              <small><a href="http://dongxi.douban.com/people/Sprinna/">心水机器人 </a>标记</small>
             </div>
             <div className="story-quote">
               <small><span className="t-quote">{item.name} </span></small>

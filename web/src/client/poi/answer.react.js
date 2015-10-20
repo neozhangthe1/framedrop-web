@@ -35,7 +35,7 @@ export default class Answer extends Component {
         </div>
 
         <div className="col-lg-12 no-padding item-info-wrap">
-          <div className="col-lg-12 no-padding item-header">
+          <div className="col-lg-12 no-padding item-header teal-border-top">
             <div className="author-box">
               <a className="author-avatar-link" href="http://dongxi.douban.com/people/Sprinna/">
                 <img width="30" height="30" className="rounded-x" src="http://img3.douban.com/icon/u1660629-24.jpg" alt="苦艾" title="苦艾"/>

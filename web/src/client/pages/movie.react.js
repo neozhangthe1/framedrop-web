@@ -33,31 +33,33 @@ export default class Movie extends Component {
             <div className="header-v6 header-classic-white header-sticky">
               <Header tab={"discover"} {...{viewer}} />
             </div>
+            <div className="content-xs">
+              <div className="frame-items-waterfall">
+                <center>
+                  <div className="btn-group  rounded" role="group">
+                    <button className="btn btn-default">
+                      <i className="icon-photo"> </i>
+                      帧
+                    </button>
+                    <button className="btn btn-default ">
+                      <i className="icon-tag"> </i>
+                      标记
+                    </button>
+                    <button className="btn btn-default ">
+                      <i className="icon-layers"> </i>
+                      队列
+                    </button>
+                    <button className="btn btn-default ">
+                      <i className="icon-star"> </i>
+                      收藏
+                    </button>
+                  </div>
+                </center>
 
-            <div className="frame-items-waterfall">
-              <center>
-                <div className="btn-group  rounded" role="group">
-                  <button className="btn btn-default">
-                    <i className="icon-photo"> </i>
-                    帧
-                  </button>
-                  <button className="btn btn-default ">
-                    <i className="icon-tag"> </i>
-                    标记
-                  </button>
-                  <button className="btn btn-default ">
-                    <i className="icon-layers"> </i>
-                    队列
-                  </button>
-                  <button className="btn btn-default ">
-                    <i className="icon-star"> </i>
-                    收藏
-                  </button>
-                </div>
-              </center>
-
-              <Waterfall {...{actions, pois, offset}}/>
+                <Waterfall {...{actions, pois, offset}}/>
+              </div>
             </div>
+
           </div>
       </DocumentTitle>
     );
