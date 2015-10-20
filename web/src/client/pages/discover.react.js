@@ -10,7 +10,7 @@ import {FormattedHTMLMessage} from 'react-intl';
 import {Link} from 'react-router';
 import Header from '../app/header.react.js'
 
-import Waterfall from '../discover/waterfall.react.js'
+import Waterfall from '../waterfall/waterfall.react.js'
 
 export default class Discover extends Component {
 
@@ -18,6 +18,10 @@ export default class Discover extends Component {
     actions: React.PropTypes.object.isRequired,
     discover: React.PropTypes.object.isRequired,
     msg: React.PropTypes.object.isRequired
+  }
+
+  componentDidMount() {
+    this.props.actions.getDiscoverPois(this.props.discover.offset, 30);
   }
 
   render() {
@@ -46,7 +50,7 @@ export default class Discover extends Component {
     return (
       <DocumentTitle title={msg.title}>
         <DynamicScripts scripts={scripts}>
-          <div className="wrapper header-fixed header-fixed-space discover">
+          <div className="wrapper header-fixed header-fixed-space">
             <div className="header-v6 header-classic-white header-sticky">
               <Header tab={"discover"} {...{viewer}} />
             </div>
@@ -76,6 +80,27 @@ export default class Discover extends Component {
 
             {/*=== End Breadcrumbs ===*/}
             {/*=== Content Part ===*/}
+            <center className="discover-nav">
+              <div className="btn-group rounded" role="group">
+                <button className="btn btn-default">
+                  <i className="icon-photo"> </i>
+                  帧
+                </button>
+                <button className="btn btn-default ">
+                  <i className="icon-tag"> </i>
+                  标记
+                </button>
+                <button className="btn btn-default ">
+                  <i className="icon-layers"> </i>
+                  队列
+                </button>
+                <button className="btn btn-default ">
+                  <i className="icon-star"> </i>
+                  收藏
+                </button>
+              </div>
+            </center>
+
             <div className="frame-items-waterfall">
               <Waterfall {...{actions, pois, offset}}/>
             </div>

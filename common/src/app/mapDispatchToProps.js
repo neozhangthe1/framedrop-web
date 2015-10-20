@@ -6,13 +6,15 @@ import {bindActionCreators} from 'redux';
 import * as discoverActions from '../discover/actions.js';
 import * as poiActions from '../poi/actions.js';
 import * as frameActions from '../frame/actions.js';
+import * as sourceActions from '../source/actions.js';
 
 const actions = [
   authActions,
   todosActions,
   discoverActions,
   poiActions,
-  frameActions
+  frameActions,
+  sourceActions
 ];
 
 export default function mapDispatchToProps(dispatch) {

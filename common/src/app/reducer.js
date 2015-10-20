@@ -9,6 +9,7 @@ import users from '../users/reducer';
 import discover from '../discover/reducer.js';
 import poi from '../poi/reducer.js';
 import frame from '../frame/reducer.js';
+import source from '../source/reducer.js';
 
 const appReducer = combineReducers({
   auth,
@@ -18,7 +19,8 @@ const appReducer = combineReducers({
   users,
   discover,
   poi,
-  frame
+  frame,
+  source
 });
 
 export default appReducer;

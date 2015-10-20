@@ -70,6 +70,19 @@ export default class Poi extends Component {
                     })
                   }
                 </div>
+
+                <div className="col-lg-4">
+                  <div className="col-xs-12 poi-side-wrap">
+                    <a className="btn-u btn-u-red btn-u-xs" href={"/frame/" + poi.fid} style={{padding: "6px 13px", marginRight: "5px"}}>
+                      <i className="icon-package" style={{"marginRight": 0, "vertical-align": "middle"}}> </i>
+                      发布同款
+                    </a>
+                    <a className="btn-u btn-brd btn-brd-hover btn-u-xs  btn-u-red item-header-btn" href={"/frame/" + poi.fid}>
+                      <i className="icon-photo" style={{"marginRight": 0}}> </i>
+                      返回图片
+                    </a>
+                  </div>
+                </div>
               </div>
               {/*/.recommended  <Recommend />*/}
               <div style={{clear: 'both'}}/>

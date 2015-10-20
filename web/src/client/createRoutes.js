@@ -9,6 +9,7 @@ import {IndexRoute, Route} from 'react-router';
 import Discover from './pages/discover.react.js';
 import Poi from './pages/poi.react.js';
 import Frame from './pages/frame.react.js';
+import Movie from './pages/movie.react.js';
 
 export default function createRoutes(getState) {
 
@@ -28,6 +29,7 @@ export default function createRoutes(getState) {
       <Route component={Poi} path="poi/:id" />
       <Route component={Frame} path="frame/:id" />
       <Route component={Login} path="login" />
+      <Route component={Movie} path="movie/:id" />
       <Route component={NotFound} path="*" />
     </Route>
   );

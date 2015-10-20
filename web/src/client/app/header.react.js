@@ -10,32 +10,38 @@ class DiscoverNav extends Component {
           <div className="menu-container row">
             <ul className="nav navbar-nav col-md-6  pull-left">
               <li className={"nav-item " + ((this.props.tab === "product") ? "active" : "")}>
+                <a href="/frame">
+                  <i className="icon-photo"></i>
+                  帧
+                </a>
+              </li>
+              <li className={"nav-item " + ((this.props.tab === "product") ? "active" : "")}>
                 <a href="/product">
-                  <i className="icon-package"> </i>
+                  <i className="icon-package"></i>
                   东西
                 </a>
               </li>
               <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
                 <a href="/fashion">
-                  <i className="icon-t-shirt"> </i>
+                  <i className="icon-t-shirt"></i>
                   穿搭
                 </a>
               </li>
               <li className={"nav-item " + ((this.props.tab === "food") ? "active" : "")}>
                 <a href="/food">
-                  <i className="icon-food"> </i>
+                  <i className="icon-food"></i>
                   美食
                 </a>
               </li>
               <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
                 <a href="/fashion">
-                  <i className="icon-shop"> </i>
+                  <i className="icon-shop"></i>
                   家居
                 </a>
               </li>
               <li className={"nav-item " + ((this.props.tab === "location") ? "active" : "")}>
                 <a href="/location">
-                  <i className="icon-location"> </i>
+                  <i className="icon-location"></i>
                   地点
                 </a>
               </li>
@@ -146,7 +152,7 @@ export default class Header extends Component {
           </div>
         </div>
 
-        {(this.props.tab != "discover") ?  "" : <DiscoverNav/> }
+        {/*(this.props.tab != "discover") ?  "" : <DiscoverNav/> */}
       </div>
     );
   }

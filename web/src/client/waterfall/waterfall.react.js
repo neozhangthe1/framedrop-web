@@ -34,9 +34,6 @@ let masonryOptions = {
 
 export default class Waterfall extends Component {
 
-  componentDidMount() {
-    this.props.actions.getDiscoverPois(this.props.offset, 30);
-  }
 
   render() {
     const {actions, pois, offset} = this.props;
@@ -103,7 +100,7 @@ export default class Waterfall extends Component {
 
     return (
       <Masonry
-        className={'container content grid-boxes'} // default ''
+        className={'container content-xs grid-boxes'} // default ''
         elementType={'div'} // default 'div'
         options={masonryOptions} // default {}
         disableImagesLoaded={false} // default false
