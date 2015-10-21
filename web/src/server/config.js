@@ -29,7 +29,7 @@ var config = {
     // reload browser during development anymore.
     hook: false
   },
-  port: process.env.PORT || 8000,
+  port: process.env.PORT || 8600,
   webpackStylesExtensions: ['css', 'less', 'sass', 'scss', 'styl']
 };
 
