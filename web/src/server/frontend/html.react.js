@@ -38,8 +38,6 @@ ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
           <meta charSet="utf-8" />
           <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
           <title>{title}</title>
-          {linkStyles}
-          {analytics}
           <link href="/ui/unify/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
           <link href="/ui/unify/css/style.css" rel="stylesheet"/>
           <link href="/ui/unify/css/headers/header-v6.css" rel="stylesheet"/>
@@ -53,6 +51,9 @@ ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
           <link rel="stylesheet" href="/ui/unify/plugins/master-slider/masterslider/style/masterslider.css"/>
           <link rel='stylesheet' href="/ui/unify/plugins/master-slider/masterslider/skins/black-2/style.css"/>
           <link rel='stylesheet' href="/icomoon/style.css"/>
+
+          {linkStyles}
+          {analytics}
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
           <script type="text/javascript" src="/ui/unify/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
