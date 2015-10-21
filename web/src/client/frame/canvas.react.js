@@ -98,7 +98,7 @@ export default class Canvas extends Component {
             <div className="cbp-l-caption-alignCenter">
               <div className="item-img-active-body">
                 <div className="cbp-l-grid-agency-title">
-                  <i className="icon-pen"></i>点击图片中有趣的地方
+                  <i className="icon-tag"> </i>点击标记图片中感兴趣的地方
                 </div>
               </div>
             </div>
