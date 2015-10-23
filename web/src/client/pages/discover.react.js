@@ -8,7 +8,8 @@ import DynamicScripts from '../../server/lib/dynamicscript.js'
 import React from 'react';
 import {FormattedHTMLMessage} from 'react-intl';
 import {Link} from 'react-router';
-import Header from '../app/header.react.js'
+import Header from '../app/header.react.js';
+import Wizard from '../wizard/wizard.react.js';
 
 import Waterfall from '../waterfall/waterfall.react.js'
 
@@ -104,6 +105,8 @@ export default class Discover extends Component {
             <div className="frame-items-waterfall">
               <Waterfall {...{actions, pois, offset}}/>
             </div>
+
+            <Wizard />
           </div>
         </DynamicScripts>
       </DocumentTitle>

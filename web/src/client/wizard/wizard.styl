@@ -1,0 +1,107 @@
+.wizard-wrap
+  bottom 30px
+  position fixed
+  right 14px
+  z-index 680
+  -webkit-transform translateZ(0)
+  transform translateZ(0)
+
+.wizard-main-btn
+  position relative
+  .wizard-btn-inner
+    opacity 0
+    -webkit-transform translateY(200px)
+    -ms-transform translateY(200px)
+    transform translateY(200px)
+    &.add-btn-wrap
+      -webkit-animation-delay 100ms
+      animation-delay 100ms
+      -webkit-transition-delay 100ms
+      transition-delay 100ms
+      margin-bottom 8px
+    &.helpButtonWrapper
+      -webkit-animation-delay 200ms
+      animation-delay 200ms
+      -webkit-transition-delay 200ms
+      transition-delay 200ms
+  &.visible
+    .wizard-btn-inner
+      -webkit-transform translateY(0)
+      -ms-transform translateY(0)
+      transform translateY(0)
+      -webkit-transition-duration 0.85s
+      transition-duration 0.85s
+      -webkit-transition-timing-function cubic-bezier(0.19, 1.32, 0.48, 1)
+      transition-timing-function cubic-bezier(0.19, 1.32, 0.48, 1)
+      opacity 1
+  .userEducationTutorialButton
+    display none
+
+.wizard-add-btn.btn
+  width: 40px
+  height: 40px
+  background: white
+  border: 2px solid #1abc9c
+  padding: 0
+  box-shadow 0 3px 5px 0 rgba(0, 0, 0, 0.2)
+  i
+    font-size 20px
+    color #1abc9c
+
+.wizard-add-btn.btn:hover
+  width: 40px
+  height: 40px
+  background: #1abc9c
+  border: 2px solid whitesmoke
+  padding: 0
+  box-shadow 0 3px 5px 0 rgba(0, 0, 0, 0.2)
+  i
+    font-size 20px
+    color white
+
+.Button.footerIcon:active, .Button.footerIcon.active
+  background-color #E9E9E9
+
+.Button
+  outline none
+  position relative
+  &.footerIcon
+    border-radius 50%
+    -webkit-box-shadow 0 1px 2px 0 rgba(0,0,0,0.22)
+    box-shadow 0 1px 2px 0 rgba(0,0,0,0.22)
+    &.borderless
+      background-color #fff
+      padding 8px
+  &.borderless
+    background-color transparent
+    border 0
+    margin 0
+    padding 0
+  &.addPinFooter
+    em
+      background-image url("https://s-passets-cache-ak0.pinimg.com/webapp/style/sprites/webapp-common-above_the_fold-2x-6bfc28da.png")
+      background-position -198px -34px
+      background-size 214px 199px
+      width 16px
+      height 16px
+  em
+    display inline-block
+    outline none
+    position relative
+    vertical-align middle
+  .accessibilityText
+    font 0 / 0 serif
+    text-shadow none
+    color transparent
+    position absolute
+
+.DropdownButton
+  display inline-block
+  position relative
+  em
+    background-image url("https://s-passets-cache-ak0.pinimg.com/webapp/style/sprites/webapp-common-main-2x-620930ee.png")
+    background-position -218px -114px
+    background-size 232px 221px
+    width 10px
+    height 7px
+
