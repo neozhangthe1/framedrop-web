@@ -17,18 +17,18 @@ export default class Badge extends Component {
     var badge = null;
     switch(type) {
       case "product":
-        badge = <div className="info-badge rgba-blue">
+        badge = <div className="info-badge bg-color-blue">
           <i className="icon-package"> </i>
           </div>;
         break;
       case "fashion":
-        badge = <div className="info-badge rgba-blue">
+        badge = <div className="info-badge bg-color-blue">
           <i className="icon-t-shirt"> </i>
           <small>穿搭</small>
           </div>;
         break;
       case "food":
-        badge = <div className="info-badge rgba-blue">
+        badge = <div className="info-badge bg-color-blue">
           <i className="icon-food"> </i>
           </div>;
         break;
