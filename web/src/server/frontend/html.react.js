@@ -32,19 +32,6 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
       />;
 
-    const baiduTongjiCode = isProduction &&
-      <script
-        dangerouslySetInnerHTML={{__html: `
-        var _hmt = _hmt || [];
-        (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?8a41fe4af95fd0e8e1e2b71176e3f250";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();`}}
-        />;
-
-
     return (
       <html lang="en">
         <head>
@@ -68,7 +55,6 @@ ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
 
           {linkStyles}
           {analytics}
-          {baiduTongjiCode}
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
           <script type="text/javascript" src="/ui/unify/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>

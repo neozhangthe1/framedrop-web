@@ -102,7 +102,21 @@ function getPageHtml(appHtml, clientState, hostname, ua) {
 
   scriptHtml += DynamicScripts.rewind() || "";
 
+  scriptHtml += `
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8a41fe4af95fd0e8e1e2b71176e3f250";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+  `;
+
   const title = DocumentTitle.rewind();
+
+
 
   return '<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(
     <Html
