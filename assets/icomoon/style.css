@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?31kd4k');
-	src:url('fonts/icomoon.eot?31kd4k#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?31kd4k') format('truetype'),
-		url('fonts/icomoon.woff?31kd4k') format('woff'),
-		url('fonts/icomoon.svg?31kd4k#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?hlgun3');
+	src:url('fonts/icomoon.eot?hlgun3#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?hlgun3') format('truetype'),
+		url('fonts/icomoon.woff?hlgun3') format('woff'),
+		url('fonts/icomoon.svg?hlgun3#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -47,17 +47,29 @@
 .icon-pushpin:before {
 	content: "\e829";
 }
+.icon-binoculars:before {
+	content: "\e900";
+}
+.icon-search:before {
+	content: "\e901";
+}
 .icon-safari:before {
 	content: "\e822";
 }
 .icon-video:before {
 	content: "\e011";
 }
+.icon-camera2:before {
+	content: "\e012";
+}
 .icon-edit:before {
 	content: "\e01c";
 }
 .icon-map:before {
 	content: "\e025";
+}
+.icon-telescope:before {
+	content: "\e02a";
 }
 .icon-lightbulb:before {
 	content: "\e030";
@@ -68,8 +80,14 @@
 .icon-pencil:before {
 	content: "\e032";
 }
+.icon-magnifying-glass:before {
+	content: "\e037";
+}
 .icon-genius:before {
 	content: "\e046";
+}
+.icon-target:before {
+	content: "\e04e";
 }
 .icon-compass:before {
 	content: "\e053";

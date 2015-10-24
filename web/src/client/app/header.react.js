@@ -78,7 +78,7 @@ export default class Header extends Component {
           <img src={viewer.avatar} className="rounded-x" width="40" height="40" />
         </a>;
       } else {
-        elem = <a className="btn-u btn-u-sea login-btn" href="/login">
+        elem = <a className="btn-u btn-u-sea login-btn push" href="/login">
           <i className="icon-bulb" style={{"marginRight": 0}}> </i>
           登陆
         </a>;
@@ -127,20 +127,20 @@ export default class Header extends Component {
               <div className="menu-container">
                 <ul className="nav navbar-nav main-nav">
                   <li className={(this.props.tab === "home") ? "active" : ""}>
-                    <a href="/">
+                    <a href="/" className="push">
                       <i className="fa fa-home fa-lg"> </i>
                       首页
                     </a>
                   </li>
                   <li className={(this.props.tab === "discover") ? "active" : ""}>
-                    <a href="/discover">
+                    <a href="/discover" className="push">
                       <i className="fa fa-compass fa-lg"> </i>
                       发现
                     </a>
                   </li>
 
                   <li className={(this.props.tab === "billboard") ? "active" : ""}>
-                    <a href="/billboard">
+                    <a href="/billboard" className="push">
                       <i className="fa fa-newspaper-o fa-lg"> </i>
                       小报
                     </a>
