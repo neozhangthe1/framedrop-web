@@ -42,6 +42,7 @@ ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
           <link href="/ui/unify/css/style.css" rel="stylesheet"/>
           <link href="/ui/unify/css/headers/header-v6.css" rel="stylesheet"/>
           <link href="/ui/unify/css/theme-colors/teal.css" rel="stylesheet"/>
+          <link href="/ui/unify/plugins/hover-effects/css/hover-min.css" rel="stylesheet"/>
           <link href="/ui/unify/css/custom.css" rel="stylesheet"/>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css"/>
           <link rel="stylesheet" href="/ui/unify/plugins/line-icons/line-icons.css"/>

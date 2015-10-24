@@ -108,23 +108,23 @@ export default class Canvas extends Component {
               <div className="item-img-active-body">
                 <ul className="link-captions">
                   <li><a href="portfolio_single_item.html">
-                    <i className="rounded-x icon-package"/></a>
+                    <i className="rounded-x icon-package push icon-color-white"/></a>
                     <span>东西</span>
                   </li>
                   <li><a href="portfolio_single_item.html">
-                    <i className="rounded-x fa icon-t-shirt"/></a>
+                    <i className="rounded-x fa icon-t-shirt push"/></a>
                     <span>穿搭</span>
                   </li>
                   <li><a href="portfolio_single_item.html">
-                    <i className="rounded-x fa icon-food"/></a>
+                    <i className="rounded-x fa icon-food push"/></a>
                     <span>美食</span>
                   </li>
                   <li><a href="portfolio_single_item.html">
-                    <i className="rounded-x fa icon-shop"/></a>
+                    <i className="rounded-x fa icon-shop push"/></a>
                     <span>家居</span>
                   </li>
                   <li><a href="assets/img/main/img4.jpg" className="cbp-lightbox" data-title="Design Object">
-                    <i className="rounded-x icon-location"/></a>
+                    <i className="rounded-x icon-location push"/></a>
                     <span>地点</span>
                   </li>
                 </ul>
