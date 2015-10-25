@@ -12,6 +12,8 @@ import Header from '../app/header.react.js';
 import Wizard from '../wizard/wizard.react.js';
 
 import Waterfall from '../waterfall/waterfall.react.js'
+import DiscoverNav from '../discover/discoverNav.react.js'
+var Tabs = require('react-simpletabs');
 
 export default class Discover extends Component {
 
@@ -82,30 +84,20 @@ export default class Discover extends Component {
             {/*=== End Breadcrumbs ===*/}
             {/*=== Content Part ===*/}
             <center className="discover-nav">
-              <div className="btn-group rounded" role="group">
-                <button className="btn btn-default">
-                  <i className="icon-photo"> </i>
-                  帧
-                </button>
-                <button className="btn btn-default ">
-                  <i className="icon-tag"> </i>
-                  标记
-                </button>
-                <button className="btn btn-default ">
-                  <i className="icon-layers"> </i>
-                  队列
-                </button>
-                <button className="btn btn-default ">
-                  <i className="icon-star"> </i>
-                  收藏
-                </button>
-              </div>
+              <Tabs>
+                <Tabs.Panel title='Tab #1'>
+                  <h2>Content #3 here</h2>
+                </Tabs.Panel>
+                <Tabs.Panel title='Tab #2'>
+                  <div className="frame-items-waterfall">
+                    <Waterfall {...{actions, pois, offset}}/>
+                  </div>
+                </Tabs.Panel>
+                <Tabs.Panel title='Tab #3'>
+                  <h2>Content #3 here</h2>
+                </Tabs.Panel>
+              </Tabs>
             </center>
-
-            <div className="frame-items-waterfall">
-              <Waterfall {...{actions, pois, offset}}/>
-            </div>
-
             <Wizard />
           </div>
         </DynamicScripts>

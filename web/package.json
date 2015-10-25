@@ -28,9 +28,10 @@
     "body-parser": "^1.12.4",
     "chai": "^3.0.0",
     "chai-immutable": "^1.1.1",
-    "classnames": "^2.1.1",
+    "classnames": "^2.1.5",
     "compression": "^1.4.0",
     "cors": "^2.6.0",
+    "cropper": "^0.11.1",
     "css-loader": "^0.18.0",
     "eslint-plugin-react": "^3.0.0",
     "eventemitter3": "^1.0.1",
@@ -62,6 +63,7 @@
     "nyan-progress-webpack-plugin": "^1.0.0",
     "postcss-loader": "^0.6.0",
     "react": "^0.14.0-rc1",
+    "react-bootstrap": "0.26.4",
     "react-cropper": "^0.4.0",
     "react-document-title": "^2.0.0",
     "react-dom": "^0.14.0-rc1",
@@ -71,6 +73,7 @@
     "react-redux": "^2.1.2",
     "react-router": "^1.0.0-rc1",
     "react-side-effect": "1.0.2",
+    "react-simpletabs": "^0.7.0",
     "react-textarea-autosize": "^2.3.1",
     "react-transform-catch-errors": "^0.2.0",
     "react-transform-hmr": "^0.1.6",
@@ -88,9 +91,7 @@
     "webpack": "^1.9.5",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.1.0",
-    "yargs": "^3.3.1",
-    "cropper": "^0.11.1",
-    "classnames": "^2.1.5"
+    "yargs": "^3.3.1"
   },
   "disabledDependencies": {
     "karma": "^0.13.3",
