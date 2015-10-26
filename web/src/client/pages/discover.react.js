@@ -13,7 +13,15 @@ import Wizard from '../wizard/wizard.react.js';
 
 import Waterfall from '../waterfall/waterfall.react.js'
 import DiscoverNav from '../discover/discoverNav.react.js'
-var Tabs = require('react-simpletabs');
+import DiscoverFrame from '../discover/discoverFrame.react.js'
+
+import ReactDOM from 'react-dom'
+import ReactTabs from 'react-tabs'
+let Tab = ReactTabs.Tab;
+let Tabs = ReactTabs.Tabs;
+let TabList = ReactTabs.TabList;
+let TabPanel = ReactTabs.TabPanel;
+
 
 export default class Discover extends Component {
 
@@ -27,8 +35,12 @@ export default class Discover extends Component {
     this.props.actions.getDiscoverPois(this.props.discover.offset, 30);
   }
 
+  handleSelect(index, last) {
+    console.log('Selected tab: ' + index + ', Last tab: ' + last);
+  }
+
   render() {
-    const {actions, discover: {pois, offset}, msg: {discover: msg}, users: {viewer}} = this.props;
+    const {actions, discover: {pois, frames, offset}, msg: {discover: msg}, users: {viewer}} = this.props;
     const scripts = `
       <script type="text/javascript" src="/ui/unify-s/js/plugins/masterslider.theme.stf.js"></script>
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
@@ -49,6 +61,9 @@ export default class Discover extends Component {
         });
       </script>
     `;
+
+    let data = pois;
+
 
     return (
       <DocumentTitle title={msg.title}>
@@ -84,18 +99,46 @@ export default class Discover extends Component {
             {/*=== End Breadcrumbs ===*/}
             {/*=== Content Part ===*/}
             <center className="discover-nav">
-              <Tabs>
-                <Tabs.Panel title='Tab #1'>
-                  <h2>Content #3 here</h2>
-                </Tabs.Panel>
-                <Tabs.Panel title='Tab #2'>
+              <Tabs
+                selectedIndex={0}
+                >
+
+                <TabList>
+
+                  <Tab>
+                    <i className="icon-photo"> </i>
+                    帧
+                  </Tab>
+                  <Tab>
+                    <i className="icon-tag"> </i>
+                    标记
+                  </Tab>
+                  <Tab>
+                    <i className="icon-layers"> </i>
+                    队列
+                  </Tab>
+                  <Tab>
+                    <i className="icon-star"> </i>
+                    收藏
+                  </Tab>
+                </TabList>
+
+                <TabPanel>
+                  <div className="frame-items-waterfall">
+                    <DiscoverFrame {...{actions, frames, offset}} />
+                  </div>
+                </TabPanel>
+                <TabPanel>
                   <div className="frame-items-waterfall">
                     <Waterfall {...{actions, pois, offset}}/>
                   </div>
-                </Tabs.Panel>
-                <Tabs.Panel title='Tab #3'>
-                  <h2>Content #3 here</h2>
-                </Tabs.Panel>
+                </TabPanel>
+                <TabPanel>
+                  <h2>Hello from Baz</h2>
+                </TabPanel>
+                <TabPanel>
+                  <h2>Hello aafrom Baz</h2>
+                </TabPanel>
               </Tabs>
             </center>
             <Wizard />

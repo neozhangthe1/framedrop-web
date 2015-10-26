@@ -1,28 +1,13 @@
 /**
- * Created by yutao on 15/10/5.
+ * Created by yutao on 15/10/26.
  */
-import './waterfall.styl';
 import Component from 'react-pure-render/component';
-import Badge from "../poi/badge.react.js";
 import React, {PropTypes} from 'react';
+import classNames from 'classnames'
+import {List, Range, Record} from 'immutable';
+import ReactDom from 'react-dom';
 
 var Masonry = require('react-masonry-component')(React);
-
-
-var getHeight = (item, width) => {
-    var height = 0;
-    var product_height = 0;
-
-    if (item.width > 0) {
-        height = item.height * width / item.width;
-    }
-    if (item.product_img_width > 0) {
-        product_height = item.product_img_height * width / item.product_img_width;
-    }
-
-    return [height, product_height]
-};
-
 
 let masonryOptions = {
     transitionDuration: '0.2s',
@@ -32,12 +17,27 @@ let masonryOptions = {
 };
 
 
-export default class Waterfall extends Component {
+var getHeight = (item, width) => {
+    var height = 0;
+
+    if (item.width > 0) {
+        height = item.height * width / item.width;
+    }
+
+    return height;
+};
+
+
+export default class DiscoverFrame extends Component {
+
+    componentDidMount() {
+        this.props.actions.getDiscoverFrames(this.props.frames.length, 30);
+    }
 
     render() {
-        const {actions, pois, offset} = this.props;
+        const {actions, frames, offset} = this.props;
 
-        var childElements = pois.map(function (item) {
+        var childElements = frames.map(function (item) {
             var sourceIcon = "fa ";
             var sourceType = "";
             if (item.src_type == "Movie") {
@@ -56,34 +56,16 @@ export default class Waterfall extends Component {
             //}.bind(this));
             var height = getHeight(item, 211);
             var styles = {
-                height: height[0]
-            };
-            var product_styles = {
-                height: height[1]
+                height: height
             };
 
             return (
                 <div className="grid-boxes-in grow grow-sm" key={item.id}>
-                    <Badge type="fashion"/>
-                    <a href={"/poi/" + item.id}>
-                        <img className="img-responsive item-photo" src={item.img} style={styles} alt/>
-                    </a>
-                    <a href={"/poi/" + item.id}>
-                        <img className="img-responsive item-photo" src={item.product_img} style={product_styles} alt/>
+                    <a href={"/frame/" + item.id}>
+                        <img className="img-responsive item-photo" src={item.url} style={styles} alt/>
                     </a>
 
-                    <div className="grid-boxes-caption">
-                        <div className="author-box">
-                            <a className="author-avatar-link" href="http://dongxi.douban.com/people/Sprinna/">
-                                <img width="24" height="24" src="http://img3.douban.com/icon/u1660629-24.jpg" alt="苦艾"
-                                     title="苦艾"/>
-                            </a>
-                            <small><a href="http://dongxi.douban.com/people/Sprinna/">心水机器人 </a>标记</small>
-                        </div>
-                        <div className="story-quote">
-                            <small><span className="t-quote">{item.name} </span></small>
-                        </div>
-                    </div>
+
                     <div className="grid-boxes-cat">
                         <a href={"/" + sourceType + "/" + item.src_id} className="source">
                             <small><i className={sourceIcon}/> {item.src_title_cn} </small>
