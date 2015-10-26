@@ -2,8 +2,7 @@
   "name": "framedrop",
   "description": "Universal Este app.",
   "authors": [
-    "Daniel Steigerwald",
-    "Mike Grabowski"
+    "Yutao Zhang"
   ],
   "private": true,
   "scripts": {
