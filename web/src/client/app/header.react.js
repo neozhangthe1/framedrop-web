@@ -78,7 +78,7 @@ export default class Header extends Component {
           <img src={viewer.avatar} className="rounded-x" width="40" height="40" />
         </a>;
       } else {
-        elem = <a className="btn-u btn-u-sea login-btn push" href="/login">
+        elem = <a className="btn-u btn-u-sea login-btn hang" href="/login">
           <i className="icon-bulb" style={{"marginRight": 0}}> </i>
           登陆
         </a>;
@@ -98,7 +98,7 @@ export default class Header extends Component {
                 <span className="icon-bar"/>
               </button>
               {/* Navbar Brand */}
-              <div className="navbar-brand">
+              <div className="navbar-brand hang">
                 <a href="/">
                   <img className="shrink-logo" src="/assets/img/framedrop.png" alt="Logo"/>
                   <img className="expand-logo" src="/assets/img/framedrop-white.png" alt="Logo"/>
@@ -127,20 +127,20 @@ export default class Header extends Component {
               <div className="menu-container">
                 <ul className="nav navbar-nav main-nav">
                   <li className={(this.props.tab === "home") ? "active" : ""}>
-                    <a href="/" className="push">
+                    <a href="/" className="hang">
                       <i className="fa fa-home fa-lg"> </i>
                       首页
                     </a>
                   </li>
                   <li className={(this.props.tab === "discover") ? "active" : ""}>
-                    <a href="/discover" className="push">
+                    <a href="/discover" className="hang">
                       <i className="fa fa-compass fa-lg"> </i>
                       发现
                     </a>
                   </li>
 
                   <li className={(this.props.tab === "billboard") ? "active" : ""}>
-                    <a href="/billboard" className="push">
+                    <a href="/billboard" className="hang">
                       <i className="fa fa-newspaper-o fa-lg"> </i>
                       小报
                     </a>

@@ -30,7 +30,7 @@ export default class Wizard extends Component {
       <div className="wizard-wrap">
         <div className="wizard-main-btn">
           <div className="wizard-add-btn-wrap">
-            <button className="btn wizard-add-btn rounded-x push" type="button" data-container="body"
+            <button className="btn wizard-add-btn rounded-x hover" type="button" data-container="body"
                     data-toggle="popover" data-placement="left"
                     data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
               <i className="icon-genius"/>
