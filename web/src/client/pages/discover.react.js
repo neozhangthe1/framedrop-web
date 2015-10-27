@@ -105,25 +105,25 @@ export default class Discover extends Component {
                 <TabList>
 
                   <Tab>
-                    <a href="#home-1" data-toggle="tab">
+                    <a href="#home-1" data-toggle="tab" className="float">
                       <i className="icon-photo"> </i>
-                      帧
+                      图片
                     </a>
                   </Tab>
                   <Tab>
-                    <a href="#home-1" data-toggle="tab">
+                    <a href="#home-1" data-toggle="tab" className="float">
                       <i className="icon-tag"> </i>
                       标记
                     </a>
                   </Tab>
                   <Tab>
-                    <a href="#home-1" data-toggle="tab">
+                    <a href="#home-1" data-toggle="tab" className="float">
                       <i className="icon-layers"> </i>
                       队列
                     </a>
                   </Tab>
                   <Tab>
-                    <a href="#home-1" data-toggle="tab">
+                    <a href="#home-1" data-toggle="tab" className="float">
                       <i className="icon-star"> </i>
                       收藏
                     </a>
