@@ -1,0 +1,80 @@
+{
+  "_args": [
+    [
+      "react-tabs@^0.5.1",
+      "/Users/yutao/Projects/framedrop/framedrop-web/web"
+    ]
+  ],
+  "_from": "react-tabs@>=0.5.1 <0.6.0",
+  "_id": "react-tabs@0.5.1",
+  "_inCache": true,
+  "_location": "/react-tabs",
+  "_nodeVersion": "3.3.1",
+  "_npmUser": {
+    "email": "mzabriskie@gmail.com",
+    "name": "mzabriskie"
+  },
+  "_npmVersion": "2.14.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "react-tabs",
+    "raw": "react-tabs@^0.5.1",
+    "rawSpec": "^0.5.1",
+    "scope": null,
+    "spec": ">=0.5.1 <0.6.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-tabs/-/react-tabs-0.5.1.tgz",
+  "_shasum": "c09c585adbb07c71c3a81cd4df55c387d8fb3df4",
+  "_shrinkwrap": null,
+  "_spec": "react-tabs@^0.5.1",
+  "_where": "/Users/yutao/Projects/framedrop/framedrop-web/web",
+  "author": {
+    "name": "Matt Zabriskie"
+  },
+  "bugs": {
+    "url": "https://github.com/rackt/react-tabs/issues"
+  },
+  "dependencies": {
+    "classnames": "2.2.0",
+    "js-stylesheet": "0.0.1"
+  },
+  "description": "React tabs component",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "c09c585adbb07c71c3a81cd4df55c387d8fb3df4",
+    "tarball": "http://registry.npmjs.org/react-tabs/-/react-tabs-0.5.1.tgz"
+  },
+  "homepage": "https://github.com/rackt/react-tabs",
+  "installable": true,
+  "keywords": [
+    "a11y",
+    "react",
+    "react-component",
+    "tabs"
+  ],
+  "license": "MIT",
+  "main": "lib/main.js",
+  "maintainers": [
+    {
+      "name": "mzabriskie",
+      "email": "mzabriskie@gmail.com"
+    }
+  ],
+  "name": "react-tabs",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rackt/react-tabs.git"
+  },
+  "scripts": {},
+  "version": "0.5.1"
+}

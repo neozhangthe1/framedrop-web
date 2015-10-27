@@ -17,7 +17,7 @@ import DiscoverFrame from '../discover/discoverFrame.react.js'
 import DiscoverPoi from '../discover/discoverPoi.react.js'
 
 import ReactDOM from 'react-dom'
-import ReactTabs from 'react-tabs'
+import ReactTabs from '../lib/react-tabs'
 let Tab = ReactTabs.Tab;
 let Tabs = ReactTabs.Tabs;
 let TabList = ReactTabs.TabList;
