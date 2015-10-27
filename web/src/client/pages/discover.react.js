@@ -14,6 +14,7 @@ import Wizard from '../wizard/wizard.react.js';
 import Waterfall from '../waterfall/waterfall.react.js'
 import DiscoverNav from '../discover/discoverNav.react.js'
 import DiscoverFrame from '../discover/discoverFrame.react.js'
+import DiscoverPoi from '../discover/discoverPoi.react.js'
 
 import ReactDOM from 'react-dom'
 import ReactTabs from 'react-tabs'
@@ -32,7 +33,7 @@ export default class Discover extends Component {
   }
 
   componentDidMount() {
-    this.props.actions.getDiscoverPois(this.props.discover.offset, 30);
+
   }
 
   handleSelect(index, last) {
@@ -99,27 +100,33 @@ export default class Discover extends Component {
             {/*=== End Breadcrumbs ===*/}
             {/*=== Content Part ===*/}
             <center className="discover-nav">
-              <Tabs
-                selectedIndex={0}
-                >
+              <Tabs >
 
                 <TabList>
 
                   <Tab>
-                    <i className="icon-photo"> </i>
-                    帧
+                    <a href="#home-1" data-toggle="tab">
+                      <i className="icon-photo"> </i>
+                      帧
+                    </a>
                   </Tab>
                   <Tab>
-                    <i className="icon-tag"> </i>
-                    标记
+                    <a href="#home-1" data-toggle="tab">
+                      <i className="icon-tag"> </i>
+                      标记
+                    </a>
                   </Tab>
                   <Tab>
-                    <i className="icon-layers"> </i>
-                    队列
+                    <a href="#home-1" data-toggle="tab">
+                      <i className="icon-layers"> </i>
+                      队列
+                    </a>
                   </Tab>
                   <Tab>
-                    <i className="icon-star"> </i>
-                    收藏
+                    <a href="#home-1" data-toggle="tab">
+                      <i className="icon-star"> </i>
+                      收藏
+                    </a>
                   </Tab>
                 </TabList>
 
@@ -130,7 +137,7 @@ export default class Discover extends Component {
                 </TabPanel>
                 <TabPanel>
                   <div className="frame-items-waterfall">
-                    <Waterfall {...{actions, pois, offset}}/>
+                    <DiscoverPoi {...{actions, pois, offset}}/>
                   </div>
                 </TabPanel>
                 <TabPanel>
