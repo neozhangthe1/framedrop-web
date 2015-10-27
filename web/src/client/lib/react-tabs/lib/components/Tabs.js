@@ -12,9 +12,9 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _jsStylesheet = require('js-stylesheet');
-
-var _jsStylesheet2 = _interopRequireDefault(_jsStylesheet);
+//var _jsStylesheet = require('js-stylesheet');
+//
+//var _jsStylesheet2 = _interopRequireDefault(_jsStylesheet);
 
 var _helpersUuid = require('../helpers/uuid');
 
