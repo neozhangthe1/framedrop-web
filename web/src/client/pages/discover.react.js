@@ -99,11 +99,10 @@ export default class Discover extends Component {
 
             {/*=== End Breadcrumbs ===*/}
             {/*=== Content Part ===*/}
-            <center className="discover-nav">
+            <div className="discover-nav">
               <Tabs >
 
                 <TabList>
-
                   <Tab>
                     <a href="#home-1" data-toggle="tab" className="float">
                       <i className="icon-photo"> </i>
@@ -130,6 +129,7 @@ export default class Discover extends Component {
                   </Tab>
                 </TabList>
 
+
                 <TabPanel>
                   <div className="frame-items-waterfall">
                     <DiscoverFrame {...{actions, frames, offset}} />
@@ -147,7 +147,7 @@ export default class Discover extends Component {
                   <h2>Hello aafrom Baz</h2>
                 </TabPanel>
               </Tabs>
-            </center>
+            </div>
             <Wizard />
           </div>
         </DynamicScripts>
