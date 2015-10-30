@@ -105,14 +105,14 @@ export default class Discover extends Component {
                 <TabList>
                   <Tab>
                     <a href="#home-1" data-toggle="tab" className="push">
-                      <i className="icon-photo"> </i>
-                      图片
+                      <i className="icon-tag"> </i>
+                      标记
                     </a>
                   </Tab>
                   <Tab>
                     <a href="#home-1" data-toggle="tab" className="push">
-                      <i className="icon-tag"> </i>
-                      标记
+                      <i className="icon-photo"> </i>
+                      图片
                     </a>
                   </Tab>
                   <Tab>
@@ -130,14 +130,15 @@ export default class Discover extends Component {
                 </TabList>
 
 
+
                 <TabPanel>
                   <div className="frame-items-waterfall">
-                    <DiscoverFrame {...{actions, frames, offset}} />
+                    <DiscoverPoi {...{actions, pois, offset}}/>
                   </div>
                 </TabPanel>
                 <TabPanel>
                   <div className="frame-items-waterfall">
-                    <DiscoverPoi {...{actions, pois, offset}}/>
+                    <DiscoverFrame {...{actions, frames, offset}} />
                   </div>
                 </TabPanel>
                 <TabPanel>
