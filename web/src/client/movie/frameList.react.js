@@ -59,6 +59,7 @@ export default class FrameList extends Component {
             var styles = {
                 height: height
             };
+            console.log(item)
 
             return (
                 <div className="grid-boxes-in grow grow-sm" key={item.id}>

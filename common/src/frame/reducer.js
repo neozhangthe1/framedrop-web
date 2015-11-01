@@ -4,7 +4,6 @@
 import * as actions from "./actions.js"
 import Frame from "../frame/frame.js"
 import {List, Range, Record} from 'immutable';
-import reqwest from "reqwest";
 
 const InitialState = Record({
   frame: new Frame

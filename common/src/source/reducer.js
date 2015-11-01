@@ -35,7 +35,7 @@ export default function sourceReducer(state = initialState, action = null) {
     }
 
     case actions.GET_SOURCE_FRAMES_SUCCESS: {
-      const newItems = action.payload.map(d => Poi(d));
+      const newItems = action.payload.map(d => Frame(d));
       return state
         .update("frames", d => d.concat(newItems));
     }
