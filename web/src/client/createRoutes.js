@@ -11,6 +11,8 @@ import Poi from './pages/poi.react.js';
 import Frame from './pages/frame.react.js';
 import Movie from './pages/movie.react.js';
 import Billboard from './pages/billboard.react.js';
+import Tabloids from './pages/tabloids.react.js';
+import CreateTabloid from './tabloid/create.react.js';
 
 export default function createRoutes(getState) {
 
@@ -32,6 +34,8 @@ export default function createRoutes(getState) {
       <Route component={Login} path="login" />
       <Route component={Movie} path="movie/:id" />
       <Route component={Billboard} path="billboard/:id" />
+      <Route component={Tabloids} path="tabloid" />
+      <Route component={CreateTabloid} path="tabloid/create" />
       <Route component={NotFound} path="*" />
     </Route>
   );
