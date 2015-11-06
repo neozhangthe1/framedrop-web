@@ -29,29 +29,9 @@ export default class Poi extends Component {
   render() {
     const {actions, poi: {poi, answers}, users: {viewer}} = this.props;
 
-    const scripts = `
-      <script type="text/javascript" src="/ui/unify/js/app.js"></script>
-      <script>
-        jQuery(document).ready(function() {
-          App.init();
-            var owl = $("#owl-demo");
-
-            owl.owlCarousel({
-                items : 10, //10 items above 1000px browser width
-                itemsDesktop : [1000,5], //5 items between 1000px and 901px
-                itemsDesktopSmall : [900,3], // betweem 900px and 601px
-                itemsTablet: [600,2], //2 items between 600 and 0
-                itemsMobile : false, // itemsMobile disabled - inherit from itemsTablet option
-                pagination: false,
-                scrollPerPage: true
-            });
-        });
-      </script>
-    `;
 
     return (
       <DocumentTitle title={""}>
-        <DynamicScripts scripts={scripts}>
           <div className="wrapper header-fixed header-fixed-space">
             <div className="header-v6 header-classic-white header-sticky">
               <Header tab={"product"} {...{viewer}} />
@@ -88,7 +68,6 @@ export default class Poi extends Component {
               <div style={{clear: 'both'}}/>
             </div>
           </div>
-        </DynamicScripts>
       </DocumentTitle>
     );
   }

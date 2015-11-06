@@ -71,10 +71,6 @@ export default class Home extends Component {
       </div>
     });
 
-
-    console.log(headlineSlideElem)
-
-
     return (
       <DocumentTitle title={msg.title}>
         <DynamicScripts scripts={scripts}>

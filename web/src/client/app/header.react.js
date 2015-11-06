@@ -3,6 +3,8 @@ import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
 class DiscoverNav extends Component {
+
+
   render() {
     return (
       <div className="secondary-nav">
@@ -11,37 +13,37 @@ class DiscoverNav extends Component {
             <ul className="nav navbar-nav col-md-6  pull-left">
               <li className={"nav-item " + ((this.props.tab === "product") ? "active" : "")}>
                 <a href="/frame">
-                  <i className="icon-photo"></i>
+                  <i className="icon-photo" />
                   帧
                 </a>
               </li>
               <li className={"nav-item " + ((this.props.tab === "product") ? "active" : "")}>
                 <a href="/product">
-                  <i className="icon-package"></i>
+                  <i className="icon-package" />
                   东西
                 </a>
               </li>
               <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
                 <a href="/fashion">
-                  <i className="icon-t-shirt"></i>
+                  <i className="icon-t-shirt" />
                   穿搭
                 </a>
               </li>
               <li className={"nav-item " + ((this.props.tab === "food") ? "active" : "")}>
                 <a href="/food">
-                  <i className="icon-food"></i>
+                  <i className="icon-food" />
                   美食
                 </a>
               </li>
               <li className={"nav-item " + ((this.props.tab === "fashion") ? "active" : "")}>
                 <a href="/fashion">
-                  <i className="icon-shop"></i>
+                  <i className="icon-shop" />
                   家居
                 </a>
               </li>
               <li className={"nav-item " + ((this.props.tab === "location") ? "active" : "")}>
                 <a href="/location">
-                  <i className="icon-location"></i>
+                  <i className="icon-location" />
                   地点
                 </a>
               </li>
@@ -66,6 +68,20 @@ export default class Header extends Component {
     pathname: PropTypes.string.isRequired,
     viewer: PropTypes.object,
     tab: PropTypes.string
+  }
+
+  componentDidMount() {
+    function handleHeader() {
+      jQuery(window).scroll(function() {
+        if (jQuery(window).scrollTop()){
+          jQuery(".header-fixed .header-sticky").addClass("header-fixed-shrink");
+        }
+        else {
+          jQuery(".header-fixed .header-sticky").removeClass("header-fixed-shrink");
+        }
+      });
+    }
+    handleHeader();
   }
 
   render() {

@@ -82,26 +82,8 @@ export default class Frame extends Component {
     const {actions, msg: {item: msg}, frame: {frame, pois}, users: {viewer}} = this.props;
 
     const scripts = `
-      <script type="text/javascript" src="/ui/unify/js/app.js"></script>
       <script type="text/javascript" src="/js/fabric/dist/fabric.js"></script>
       <script type="text/javascript" src="/js/darkroom/build/darkroom.js"></script>
-      <script>
-        jQuery(document).ready(function() {
-          App.init();
-            var owl = $("#owl-demo");
-
-            owl.owlCarousel({
-                items : 10, //10 items above 1000px browser width
-                itemsDesktop : [1000,5], //5 items between 1000px and 901px
-                itemsDesktopSmall : [900,3], // betweem 900px and 601px
-                itemsTablet: [600,2], //2 items between 600 and 0
-                itemsMobile : false, // itemsMobile disabled - inherit from itemsTablet option
-                pagination: false,
-                scrollPerPage: true
-            });
-        });
-
-      </script>
     `;
 
 
