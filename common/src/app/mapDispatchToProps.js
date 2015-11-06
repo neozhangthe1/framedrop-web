@@ -7,6 +7,7 @@ import * as discoverActions from '../discover/actions.js';
 import * as poiActions from '../poi/actions.js';
 import * as frameActions from '../frame/actions.js';
 import * as sourceActions from '../source/actions.js';
+import * as homeActions from '../home/actions';
 
 const actions = [
   authActions,
@@ -14,7 +15,8 @@ const actions = [
   discoverActions,
   poiActions,
   frameActions,
-  sourceActions
+  sourceActions,
+  homeActions
 ];
 
 export default function mapDispatchToProps(dispatch) {

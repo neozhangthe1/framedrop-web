@@ -23,19 +23,20 @@ var getPosition = (element) => {
 
 export default class Canvas extends Component {
 
-  static propTypes = {
-    data: React.PropTypes.object.isRequired
-  }
+  //static propTypes = {
+  //  frame: React.PropTypes.object.isRequired,
+  //}
 
   constructor(props) {
     super(props);
-    this.state = {w: 0, h: 0, wrapW: 0, wrapH: 0, tagging: false, points: List()};
+    this.state = {w: 0, h: 0, wrapW: 0, wrapH: 0, tagging: false, points: []};
     this.addTag = this.addTag.bind(this);
   }
 
   componentDidMount() {
-    var wrapW, w = this.props.data.width;
-    var wrapH, h = this.props.data.height;
+    const {frame, pois} = this.props;
+    var wrapW, w = frame.width;
+    var wrapH, h = frame.height;
 
     if (w > ReactDom.findDOMNode(this.refs.wrap).offsetWidth) {
       h = ReactDom.findDOMNode(this.refs.wrap).offsetWidth / w * h;
@@ -47,7 +48,6 @@ export default class Canvas extends Component {
     }
 
     this.setState({w: w, h: h, wrapW: wrapW, wrapH: wrapH});
-    console.log(this.state)
   }
 
   addTag(e) {
@@ -61,19 +61,23 @@ export default class Canvas extends Component {
   }
 
   render() {
-    const {data} = this.props;
+    const {frame, pois} = this.props;
 
     var icon = "";
     var url = "";
-    if (this.props.data.src_type == "Movie") {
+    if (frame.src_type == "Movie") {
       icon = "fa fa-film";
-      url = "/movie/" + this.props.data.src_id;
-    } else if (this.props.data.src_type == "Tv") {
+      url = "/movie/" + frame.src_id;
+    } else if (frame.src_type == "Tv") {
       icon = "fa fa-tv";
-      url = "/tv/" + this.props.data.src_id;
+      url = "/tv/" + frame.src_id;
     }
 
-    var pointsElem = this.state.points.map((p, i) => {
+    const points = pois.concat(this.state.points);
+
+    console.log("ddd")
+    console.log(points)
+    var pointsElem = (points).map((p, i) => {
       return <aside className="annotation comment-group separator-between-all-comments open" key={i} style={{top: p.y * this.state.h - 12, left: p.x * this.state.w - 12}}>
         <i className="marker">
           <i className="marker-inner" style={{background:'#0b9ed4'}}></i>
@@ -89,7 +93,7 @@ export default class Canvas extends Component {
              style={{height: this.state.wrapH}} onClick={this.addTag}>
 
           <div className="item-img-wrap">
-            <img src={data.url} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img" style={{width: this.state.w, height: this.state.h}}/>
+            <img src={frame.url} id="item-img" crossOrigin="Anonymous" alt="lorem ipsum dolor sit" ref="img" style={{width: this.state.w, height: this.state.h}}/>
           </div>
           <div className="points-wrap" style={{height: this.state.wrapH, width: "100%"}}>
             {pointsElem}

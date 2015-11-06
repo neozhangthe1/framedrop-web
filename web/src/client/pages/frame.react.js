@@ -12,15 +12,16 @@ import './frame.styl'
 
 
 class FrameMainView extends Component {
+
   render() {
-    const {frame} = this.props;
+    const {frame, pois} = this.props;
     var commentList = [].map(function (c) {
       return <Comment key={c.id} data={c}/>
     });
 
     return (
       <div>
-        <Canvas data={this.props.frame}/>
+        <Canvas {...{frame, pois}}/>
 
         <div className="col-sm-12 frame-header">
           <div className="clearfix">
@@ -63,21 +64,22 @@ class FrameMainView extends Component {
 
 export default class Frame extends Component {
 
-  static propTypes = {
-    actions: PropTypes.object,
-    msg: PropTypes.object,
-    item: PropTypes.object
-  }
+  //static propTypes = {
+  //  actions: PropTypes.object,
+  //  msg: PropTypes.object,
+  //  item: PropTypes.object
+  //}
 
   componentDidMount() {
     this.props.actions.getFrame(this.props.params.id);
+    this.props.actions.getPoiByFrame(this.props.params.id);
     jQuery(document).ready(function () {
       App.init();
     });
   }
 
   render() {
-    const {actions, msg: {item: msg}, frame: {frame}, users: {viewer}} = this.props;
+    const {actions, msg: {item: msg}, frame: {frame, pois}, users: {viewer}} = this.props;
 
     const scripts = `
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
@@ -102,6 +104,8 @@ export default class Frame extends Component {
       </script>
     `;
 
+
+
     return (
       <DocumentTitle title={""}>
         <DynamicScripts scripts={scripts}>
@@ -115,7 +119,7 @@ export default class Frame extends Component {
                //</div>*/}
               <div className="row transitionfx frame-main-view-wrap">
                 <div className="col-md-8">
-                  {(frame.url) ? <FrameMainView frame={frame}/> : null}
+                  {(frame.url) ? <FrameMainView {...{frame, pois}}/> : null}
 
                 </div>
                 <div className="col-md-4 frame-side-view">

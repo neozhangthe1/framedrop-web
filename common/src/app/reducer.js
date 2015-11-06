@@ -10,6 +10,7 @@ import discover from '../discover/reducer.js';
 import poi from '../poi/reducer.js';
 import frame from '../frame/reducer.js';
 import source from '../source/reducer.js';
+import home from '../home/reducer'
 
 const appReducer = combineReducers({
   auth,
@@ -20,7 +21,8 @@ const appReducer = combineReducers({
   discover,
   poi,
   frame,
-  source
+  source,
+  home
 });
 
 export default appReducer;

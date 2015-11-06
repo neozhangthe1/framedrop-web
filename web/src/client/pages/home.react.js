@@ -11,13 +11,16 @@ import Header from '../app/header.react.js'
 export default class Home extends Component {
 
   // Why not .isRequired? https://github.com/rackt/react-router/issues/1505
-  static propTypes = {
-    msg: PropTypes.object
+  //static propTypes = {
+  //  msg: PropTypes.object
+  //}
+  componentDidMount() {
+    this.props.actions.getHeadline();
   }
 
   render() {
 
-    const {msg: {home: msg}, users: {viewer}} = this.props;
+    const {msg: {home: msg}, users: {viewer}, home: {frames}} = this.props;
     const scripts = `
       <script type="text/javascript" src="/ui/unify/js/app.js"></script>
       <script>
@@ -32,7 +35,25 @@ export default class Home extends Component {
       </script>
     `;
 
-    console.log(this.props)
+    let headlineElem = frames.map(f => {
+      let hotspotElem = f[1].map(p => {
+        console.log(p)
+        return <div className="ms-layer" data-offset-x={550} data-offset-y={515} data-delay={500} data-type="hotspot" data-align="bottom" style={{left: p.x * 1000, top: p.y * 500}}>
+          <div className="product-tt">
+            <h3></h3>
+            {p.name}
+          </div>
+        </div>
+      });
+
+      return <div className="ms-slide" style={{zIndex: 10}}>
+        <img src="/ui/unify/plugins/master-slider/masterslider/style/blank.gif" data-src={f[0].url} alt/>
+
+        {hotspotElem}
+
+      </div>
+    });
+
 
     return (
       <DocumentTitle title={msg.title}>
@@ -44,34 +65,7 @@ export default class Home extends Component {
             <div className="ms-layers-template home-slider">
               {/* masterslider */}
               <div className="master-slider ms-skin-black-2 round-skin" id="masterslider">
-                <div className="ms-slide" style={{zIndex: 10}}>
-                  <img src="/ui/unify/plugins/master-slider/masterslider/style/blank.gif" data-src="http://7xkkj9.com1.z0.glb.clouddn.com/frame/d/1002916808" alt />
-                  <div className="ms-layer ms-promo-info color-light" style={{left: 15, top: 160}} data-effect="bottom(40)" data-duration={2000} data-delay={700} data-ease="easeOutExpo">Introducing</div>
-                  <div className="ms-layer ms-promo-info ms-promo-info-in color-light" style={{left: 15, top: 210}} data-effect="bottom(40)" data-duration={2000} data-delay={1000} data-ease="easeOutExpo"><span className="color-green">Unify</span> Template</div>
-                  <div className="ms-layer ms-promo-sub color-light" style={{left: 15, top: 310}} data-effect="bottom(40)" data-duration={2000} data-delay={1300} data-ease="easeOutExpo">We are creative technology company providing <br /> key digital services on web and mobile.</div>
-                  <a className="ms-layer btn-u btn-weibo" style={{left: 15, top: 390}} href="#" data-effect="bottom(40)" data-duration={2000} data-delay={1300} data-ease="easeOutExpo"><i className="fa fa-weibo"/> 微博登陆</a>
-                  <a className="ms-layer btn-u btn-weixin" style={{left: 150, top: 390}} href="#" data-effect="bottom(40)" data-duration={2000} data-delay={1300} data-ease="easeOutExpo"><i className="fa fa-weixin"/> 微信登陆</a>
-                </div>
-                <div className="ms-slide" style={{zIndex: 13}}>
-                  <img src="/ui/unify/plugins/master-slider/masterslider/style/blank.gif" data-src="http://7xkkj9.com1.z0.glb.clouddn.com/frame/d/1003393787" alt />
-                  <img className="ms-layer" src="/ui/unify/plugins/master-slider/masterslider/style/blank.gif" data-src="/ui/unify/img/mockup/hand-black-iphone-l.png" alt style={{bottom: '-10px', left: 15, width: 400, height: 'auto'}} data-effect="bottom(100)" data-duration={2000} data-ease="easeOutExpo" data-type="image" />
-                  <h3 className="ms-layer ms-promo-info-in color-light" style={{left: 450, top: 170}} data-effect="right(40)" data-duration={2300} data-delay={1300} data-ease="easeOutExpo">MOST</h3>
-                  <h3 className="ms-layer ms-promo-info-in color-darker" style={{left: 450, top: 230}} data-effect="left(40)" data-duration={2300} data-delay={1400} data-ease="easeOutBack">INCREDIBLE</h3>
-                  <h3 className="ms-layer ms-promo-info-in color-darker" style={{left: 450, top: 290}} data-effect="left(40)" data-duration={2300} data-delay={1400} data-ease="easeOutBack">NEW <span className="color-light">FEATURES</span></h3>
-                  <a className="ms-layer btn-u" style={{left: 450, top: 370}} href="#" data-effect="bottom(40)" data-duration={2000} data-delay={1300} data-ease="easeOutExpo"><i className="fa fa-wechat"/> 微信登陆</a>
-                  <a className="ms-layer btn-u btn-u-dark" style={{left: 580, top: 370}} href="#" data-effect="bottom(40)" data-duration={2000} data-delay={1300} data-ease="easeOutExpo">DOWNLOAD NOW</a>
-                </div>
-                <div className="ms-slide" style={{zIndex: 12}}>
-                  <img src="/ui/unify/plugins/master-slider/masterslider/style/blank.gif" data-src="http://7xkkj9.com1.z0.glb.clouddn.com/frame/d/1005052797" alt />
-                  <div className="ms-layer video-box" style={{bottom: 125, right: 15, width: 650, height: 370}} data-type="video" data-effect="rotate3dright(0,30,0,100,r)" data-duration={1500} data-ease="easeOutQuad">
-                    <img className="ms-img-bordered" src="/ui/unify/plugins/master-slider/slider-templates/masterslider/style/blank.gif" data-src="/ui/unify/img/main/img20.jpg" alt />
-                    <iframe src="http://player.vimeo.com/video/70528799" frameBorder={0} webkitallowfullscreen mozallowfullscreen allowFullScreen> </iframe>
-                  </div>
-                  <h3 className="ms-layer ms-promo-info color-light" style={{left: 10, top: 170}} data-effect="bottom(20)" data-duration={2300} data-delay={2300} data-ease="easeOutExpo">AMAZING</h3>
-                  <h3 className="ms-layer ms-promo-info-in color-light" style={{left: 10, top: 245}} data-effect="left(100)" data-duration={3300} data-delay={1900} data-ease="easeOutExpo"><span className="color-green">FEATURES</span></h3>
-                  <h3 className="ms-layer normal-title color-light" style={{left: 10, top: 312}} data-effect="bottom(20)" data-duration={2300} data-delay={2000} data-ease="easeOutExpo">UNIFY BOOTSTRAP TEMPLATE</h3>
-                  <p className="ms-layer ms-promo-sub ms-promo-sub-in color-light" style={{left: 10, top: 360}} data-effect="right(40)" data-duration={2300} data-delay={2300} data-ease="easeOutExpo">YOUTUBE, VIMEO AND CUSTOM <br /> IFRAME SUPPORTED</p>
-                </div>
+                {headlineElem}
               </div>
               {/* end of masterslider */}
             </div>
@@ -84,7 +78,9 @@ export default class Home extends Component {
                   {/* News v3 */}
                   <div className="row margin-bottom-20 list-wrap">
                     <div className="col-sm-5 sm-margin-bottom-20">
-                      <img className="img-responsive" src="http://imgsrc.baidu.com/forum/w%3D580/sign=ea5479209e510fb37819779fe932c893/483d6736acaf2eddaf557e708d1001e9380193b2.jpg" alt />
+                      <img className="img-responsive"
+                           src="http://imgsrc.baidu.com/forum/w%3D580/sign=ea5479209e510fb37819779fe932c893/483d6736acaf2eddaf557e708d1001e9380193b2.jpg"
+                           alt/>
                     </div>
                     <div className="col-sm-7 news-v3">
                       <div className="news-v3-in-sm no-padding">
@@ -98,16 +94,17 @@ export default class Home extends Component {
                         <ul className="post-shares">
                           <li>
                             <a href="#">
-                              <i className="rounded-x icon-speech" />
+                              <i className="rounded-x icon-speech"/>
                               <span>5</span>
                             </a>
                           </li>
-                          <li><a href="#"><i className="rounded-x icon-share" /></a></li>
-                          <li><a href="#"><i className="rounded-x icon-heart" /></a></li>
+                          <li><a href="#"><i className="rounded-x icon-share"/></a></li>
+                          <li><a href="#"><i className="rounded-x icon-heart"/></a></li>
                         </ul>
                       </div>
                     </div>
-                  </div>{/*/end row*/}
+                  </div>
+                  {/*/end row*/}
                   {/* End News v3 */}
                   {/* News v3 */}
                   <div className="row margin-bottom-20 list-wrap">
@@ -115,20 +112,20 @@ export default class Home extends Component {
                       <div className="carousel slide" data-ride="carousel" id="blog-carousel">
                         {/* Indicators */}
                         <ol className="carousel-indicators">
-                          <li data-target="#blog-carousel" data-slide-to={0} className="active rounded-x" />
-                          <li data-target="#blog-carousel" data-slide-to={1} className="rounded-x" />
-                          <li data-target="#blog-carousel" data-slide-to={2} className="rounded-x" />
+                          <li data-target="#blog-carousel" data-slide-to={0} className="active rounded-x"/>
+                          <li data-target="#blog-carousel" data-slide-to={1} className="rounded-x"/>
+                          <li data-target="#blog-carousel" data-slide-to={2} className="rounded-x"/>
                         </ol>
                         {/* Wrapper for slides */}
                         <div className="carousel-inner" role="listbox">
                           <div className="item active">
-                            <img src="http://img3.douban.com/view/note/large/public/p92197859-1.jpg" alt />
+                            <img src="http://img3.douban.com/view/note/large/public/p92197859-1.jpg" alt/>
                           </div>
                           <div className="item">
-                            <img src="http://img3.douban.com/view/note/large/public/p92197859-2.jpg" alt />
+                            <img src="http://img3.douban.com/view/note/large/public/p92197859-2.jpg" alt/>
                           </div>
                           <div className="item">
-                            <img src="/ui/unify/img/main/img24.jpg" alt />
+                            <img src="/ui/unify/img/main/img24.jpg" alt/>
                           </div>
                         </div>
                       </div>
@@ -141,22 +138,24 @@ export default class Home extends Component {
                         <ul className="post-shares">
                           <li>
                             <a href="#">
-                              <i className="rounded-x icon-speech" />
+                              <i className="rounded-x icon-speech"/>
                               <span>5</span>
                             </a>
                           </li>
-                          <li><a href="#"><i className="rounded-x icon-share" /></a></li>
-                          <li><a href="#"><i className="rounded-x icon-heart" /></a></li>
+                          <li><a href="#"><i className="rounded-x icon-share"/></a></li>
+                          <li><a href="#"><i className="rounded-x icon-heart"/></a></li>
                         </ul>
                       </div>
                     </div>
-                  </div>{/*/end row*/}
+                  </div>
+                  {/*/end row*/}
                   {/* End News v3 */}
                   {/* News v3 */}
                   <div className="row margin-bottom-20 list-wrap">
                     <div className="col-sm-5 sm-margin-bottom-20">
                       <div className="responsive-video">
-                        <iframe src="//player.vimeo.com/video/93094247?title=0&byline=0&portrait=0" frameBorder={0} webkitallowfullscreen mozallowfullscreen allowFullScreen />
+                        <iframe src="//player.vimeo.com/video/93094247?title=0&byline=0&portrait=0" frameBorder={0}
+                                webkitallowfullscreen mozallowfullscreen allowFullScreen/>
                       </div>
                     </div>
                     <div className="col-sm-7 news-v3">
@@ -167,25 +166,28 @@ export default class Home extends Component {
                           <li>Posted January 24, 2015</li>
                         </ul>
                         <h2><a href="#">Awesome post “VIDEO”</a></h2>
-                        <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin non metus inmi efficitur...</p>
+                        <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus,
+                          imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum
+                          sollicitudin non metus inmi efficitur...</p>
                         <ul className="post-shares">
                           <li>
                             <a href="#">
-                              <i className="rounded-x icon-speech" />
+                              <i className="rounded-x icon-speech"/>
                               <span>5</span>
                             </a>
                           </li>
-                          <li><a href="#"><i className="rounded-x icon-share" /></a></li>
-                          <li><a href="#"><i className="rounded-x icon-heart" /></a></li>
+                          <li><a href="#"><i className="rounded-x icon-share"/></a></li>
+                          <li><a href="#"><i className="rounded-x icon-heart"/></a></li>
                         </ul>
                       </div>
                     </div>
-                  </div>{/*/end row*/}
+                  </div>
+                  {/*/end row*/}
                   {/* End News v3 */}
                   {/* News v3 */}
                   <div className="row margin-bottom-20 list-wrap">
                     <div className="col-sm-5 sm-margin-bottom-20">
-                      <img className="img-responsive" src="/ui/unify/img/main/img18.jpg" alt />
+                      <img className="img-responsive" src="/ui/unify/img/main/img18.jpg" alt/>
                     </div>
                     <div className="col-sm-7 news-v3">
                       <div className="news-v3-in-sm no-padding">
@@ -195,25 +197,28 @@ export default class Home extends Component {
                           <li>Posted January 24, 2015</li>
                         </ul>
                         <h2><a href="#">Wonderful post “IMAGE”</a></h2>
-                        <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin non metus inmi efficitur...</p>
+                        <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus,
+                          imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum
+                          sollicitudin non metus inmi efficitur...</p>
                         <ul className="post-shares">
                           <li>
                             <a href="#">
-                              <i className="rounded-x icon-speech" />
+                              <i className="rounded-x icon-speech"/>
                               <span>5</span>
                             </a>
                           </li>
-                          <li><a href="#"><i className="rounded-x icon-share" /></a></li>
-                          <li><a href="#"><i className="rounded-x icon-heart" /></a></li>
+                          <li><a href="#"><i className="rounded-x icon-share"/></a></li>
+                          <li><a href="#"><i className="rounded-x icon-heart"/></a></li>
                         </ul>
                       </div>
                     </div>
-                  </div>{/*/end row*/}
+                  </div>
+                  {/*/end row*/}
                   {/* End News v3 */}
                   {/* News v3 */}
                   <div className="row margin-bottom-20 list-wrap">
                     <div className="col-sm-5 sm-margin-bottom-20">
-                      <img className="img-responsive" src="/ui/unify/img/main/img3.jpg" alt />
+                      <img className="img-responsive" src="/ui/unify/img/main/img3.jpg" alt/>
                     </div>
                     <div className="col-sm-7 news-v3">
                       <div className="news-v3-in-sm no-padding">
@@ -223,20 +228,23 @@ export default class Home extends Component {
                           <li>Posted January 24, 2015</li>
                         </ul>
                         <h2><a href="#">Incredible standard post “IMAGE”</a></h2>
-                        <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin non metus inmi efficitur...</p>
+                        <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus,
+                          imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum
+                          sollicitudin non metus inmi efficitur...</p>
                         <ul className="post-shares">
                           <li>
                             <a href="#">
-                              <i className="rounded-x icon-speech" />
+                              <i className="rounded-x icon-speech"/>
                               <span>5</span>
                             </a>
                           </li>
-                          <li><a href="#"><i className="rounded-x icon-share" /></a></li>
-                          <li><a href="#"><i className="rounded-x icon-heart" /></a></li>
+                          <li><a href="#"><i className="rounded-x icon-share"/></a></li>
+                          <li><a href="#"><i className="rounded-x icon-heart"/></a></li>
                         </ul>
                       </div>
                     </div>
-                  </div>{/*/end row*/}
+                  </div>
+                  {/*/end row*/}
                   {/* End News v3 */}
                   {/* Pager v3 */}
                   <ul className="pager pager-v3 pager-sm no-margin-bottom">
@@ -275,7 +283,8 @@ export default class Home extends Component {
                       <li>
                         <h3><a href="#">The point of using Lorem Ipsum</a></h3>
                         <small>19 Jan, 2015 / <a href="#">Hi-Tech,</a> <a href="#">Technology</a></small>
-                        <p>Phasellus ullamcorper pellentesque ex. Cras venenatis elit orci, vitae dictum elit egestas a. Nunc nec auctor mauris, semper scelerisque nibh.</p>
+                        <p>Phasellus ullamcorper pellentesque ex. Cras venenatis elit orci, vitae dictum elit egestas a.
+                          Nunc nec auctor mauris, semper scelerisque nibh.</p>
                       </li>
                       <li>
                         <h3><a href="#">Many desktop publishing packages...</a></h3>
@@ -306,48 +315,57 @@ export default class Home extends Component {
                     {/* Photostream */}
                     <ul className="list-inline blog-photostream margin-bottom-50 right-component-items">
                       <li>
-                        <a href="/ui/unify/img/main/img22.jpg" rel="gallery" className="fancybox img-hover-v2" title="Image 1">
-                          <span><img className="img-responsive" src="/ui/unify/img/main/img22.jpg" alt /></span>
+                        <a href="/ui/unify/img/main/img22.jpg" rel="gallery" className="fancybox img-hover-v2"
+                           title="Image 1">
+                          <span><img className="img-responsive" src="/ui/unify/img/main/img22.jpg" alt/></span>
                         </a>
                       </li>
                       <li>
-                        <a href="/ui/unify/img/main/img23.jpg" rel="gallery" className="fancybox img-hover-v2" title="Image 2">
-                          <span><img className="img-responsive" src="/ui/unify/img/main/img23.jpg" alt /></span>
+                        <a href="/ui/unify/img/main/img23.jpg" rel="gallery" className="fancybox img-hover-v2"
+                           title="Image 2">
+                          <span><img className="img-responsive" src="/ui/unify/img/main/img23.jpg" alt/></span>
                         </a>
                       </li>
                       <li>
-                        <a href="/ui/unify/img/main/img4.jpg" rel="gallery" className="fancybox img-hover-v2" title="Image 3">
-                          <span><img className="img-responsive" src="/ui/unify/img/main/img4.jpg" alt /></span>
+                        <a href="/ui/unify/img/main/img4.jpg" rel="gallery" className="fancybox img-hover-v2"
+                           title="Image 3">
+                          <span><img className="img-responsive" src="/ui/unify/img/main/img4.jpg" alt/></span>
                         </a>
                       </li>
                       <li>
-                        <a href="/ui/unify/img/main/img9.jpg" rel="gallery" className="fancybox img-hover-v2" title="Image 4">
-                          <span><img className="img-responsive" src="/ui/unify/img/main/img9.jpg" alt /></span>
+                        <a href="/ui/unify/img/main/img9.jpg" rel="gallery" className="fancybox img-hover-v2"
+                           title="Image 4">
+                          <span><img className="img-responsive" src="/ui/unify/img/main/img9.jpg" alt/></span>
                         </a>
                       </li>
                       <li>
-                        <a href="/ui/unify/img/main/img25.jpg" rel="gallery" className="fancybox img-hover-v2" title="Image 5">
-                          <span><img className="img-responsive" src="/ui/unify/img/main/img25.jpg" alt /></span>
+                        <a href="/ui/unify/img/main/img25.jpg" rel="gallery" className="fancybox img-hover-v2"
+                           title="Image 5">
+                          <span><img className="img-responsive" src="/ui/unify/img/main/img25.jpg" alt/></span>
                         </a>
                       </li>
                       <li>
-                        <a href="/ui/unify/img/main/img6.jpg" rel="gallery" className="fancybox img-hover-v2" title="Image 6">
-                          <span><img className="img-responsive" src="/ui/unify/img/main/img6.jpg" alt /></span>
+                        <a href="/ui/unify/img/main/img6.jpg" rel="gallery" className="fancybox img-hover-v2"
+                           title="Image 6">
+                          <span><img className="img-responsive" src="/ui/unify/img/main/img6.jpg" alt/></span>
                         </a>
                       </li>
                       <li>
-                        <a href="/ui/unify/img/main/img20.jpg" rel="gallery" className="fancybox img-hover-v2" title="Image 7">
-                          <span><img className="img-responsive" src="/ui/unify/img/main/img20.jpg" alt /></span>
+                        <a href="/ui/unify/img/main/img20.jpg" rel="gallery" className="fancybox img-hover-v2"
+                           title="Image 7">
+                          <span><img className="img-responsive" src="/ui/unify/img/main/img20.jpg" alt/></span>
                         </a>
                       </li>
                       <li>
-                        <a href="/ui/unify/img/main/img3.jpg" rel="gallery" className="fancybox img-hover-v2" title="Image 8">
-                          <span><img className="img-responsive" src="/ui/unify/img/main/img3.jpg" alt /></span>
+                        <a href="/ui/unify/img/main/img3.jpg" rel="gallery" className="fancybox img-hover-v2"
+                           title="Image 8">
+                          <span><img className="img-responsive" src="/ui/unify/img/main/img3.jpg" alt/></span>
                         </a>
                       </li>
                       <li>
-                        <a href="/ui/unify/img/main/img7.jpg" rel="gallery" className="fancybox img-hover-v2" title="Image 9">
-                          <span><img className="img-responsive" src="/ui/unify/img/main/img7.jpg" alt /></span>
+                        <a href="/ui/unify/img/main/img7.jpg" rel="gallery" className="fancybox img-hover-v2"
+                           title="Image 9">
+                          <span><img className="img-responsive" src="/ui/unify/img/main/img7.jpg" alt/></span>
                         </a>
                       </li>
                     </ul>
