@@ -16,7 +16,7 @@ export default class Home extends Component {
   //}
   constructor(props) {
     super(props);
-    this.state = {headlineReady: false, headlineLoaded: false};
+    this.state = {headlineReady: false, headlineLoaded: false, w: 1024, h: 600};
   }
 
   componentDidMount() {
@@ -30,12 +30,10 @@ export default class Home extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.state)
     if (this.state.headlineReady && !this.state.headlineLoaded) {
-      console.log(this.props.home.frames)
       var slider = new MasterSlider();
       slider.setup('masterslider' , {
-        width:1024,
+        width:1280,
         height:600,
         fullwidth:true,
         centerControls:false,
@@ -59,7 +57,7 @@ export default class Home extends Component {
 
     let headlineSlideElem = frames.map(f => {
       let hotspotElem = f[1].map(p => {
-        return <div className="ms-layer" data-offset-x={550} data-offset-y={515} data-delay={500} data-type="hotspot" key={p.id} data-align="bottom" style={{left: p.x * 1000, top: p.y * 500}}>
+        return <div className="ms-layer" data-offset-x={550} data-offset-y={515} data-delay={300} data-type="hotspot" key={p.id} data-align="bottom" style={{left: p.x * 1280, top: p.y * 600}}>
           <div className="product-tt">
             <h3></h3>
             {p.name}
