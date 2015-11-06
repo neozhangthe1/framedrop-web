@@ -14,31 +14,52 @@ export default class Home extends Component {
   //static propTypes = {
   //  msg: PropTypes.object
   //}
+  constructor(props) {
+    super(props);
+    this.state = {headlineReady: false, headlineLoaded: false};
+  }
+
   componentDidMount() {
     this.props.actions.getHeadline();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.home.frames.length > 0 && !this.state.headlineReady) {
+      this.setState({headlineReady: true});
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(this.state)
+    if (this.state.headlineReady && !this.state.headlineLoaded) {
+      console.log(this.props.home.frames)
+      var slider = new MasterSlider();
+      slider.setup('masterslider' , {
+        width:1024,
+        height:600,
+        fullwidth:true,
+        centerControls:false,
+        speed:18,
+        view:'flow',
+        loop: true
+      });
+      slider.control('arrows');
+      slider.control('bullets' ,{autohide:false});
+      this.setState({headlineLoaded: false});
+    }
   }
 
   render() {
 
     const {msg: {home: msg}, users: {viewer}, home: {frames}} = this.props;
     const scripts = `
-      <script type="text/javascript" src="/ui/unify/js/app.js"></script>
-      <script>
-        jQuery(document).ready(function() {
-          App.init();
-          App.initCounter();
-          App.initParallaxBg();
-          FancyBox.initFancybox();
-          MSfullWidth.initMSfullWidth();
-          OwlCarousel.initOwlCarousel();
-          });
-      </script>
+
     `;
 
-    let headlineElem = frames.map(f => {
+
+    let headlineSlideElem = frames.map(f => {
       let hotspotElem = f[1].map(p => {
-        console.log(p)
-        return <div className="ms-layer" data-offset-x={550} data-offset-y={515} data-delay={500} data-type="hotspot" data-align="bottom" style={{left: p.x * 1000, top: p.y * 500}}>
+        return <div className="ms-layer" data-offset-x={550} data-offset-y={515} data-delay={500} data-type="hotspot" key={p.id} data-align="bottom" style={{left: p.x * 1000, top: p.y * 500}}>
           <div className="product-tt">
             <h3></h3>
             {p.name}
@@ -46,13 +67,14 @@ export default class Home extends Component {
         </div>
       });
 
-      return <div className="ms-slide" style={{zIndex: 10}}>
+      return <div className="ms-slide" style={{zIndex: 10}} key={f[0].id}>
         <img src="/ui/unify/plugins/master-slider/masterslider/style/blank.gif" data-src={f[0].url} alt/>
-
         {hotspotElem}
-
       </div>
     });
+
+
+    console.log(headlineSlideElem)
 
 
     return (
@@ -62,12 +84,11 @@ export default class Home extends Component {
             <div className="header-v6 header-white-transparent header-sticky">
               <Header tab={"home"} {...{viewer}} />
             </div>
+
             <div className="ms-layers-template home-slider">
-              {/* masterslider */}
               <div className="master-slider ms-skin-black-2 round-skin" id="masterslider">
-                {headlineElem}
+                {headlineSlideElem}
               </div>
-              {/* end of masterslider */}
             </div>
 
             {/*=== Blog Posts ===*/}

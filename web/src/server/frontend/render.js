@@ -94,7 +94,6 @@ function getPageHtml(appHtml, clientState, hostname, ua) {
 
           <script type="text/javascript" src="/ui/unify/js/custom.js"></script>
           <script type="text/javascript" src="/ui/unify/js/plugins/fancy-box.js"></script>
-          <script type="text/javascript" src="/ui/unify/js/plugins/master-slider-fw.js"></script>
 
           <script type="text/javascript" src="/ui/unify/js/plugins/owl-carousel.js"></script>
 

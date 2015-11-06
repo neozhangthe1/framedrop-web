@@ -7,7 +7,7 @@ import Poi from "../poi/poi.js"
 import {List, Range, Record} from 'immutable';
 
 const InitialState = Record({
-  frames: List()
+  frames: []
 });
 const initialState = new InitialState;
 
